@@ -1,24 +1,15 @@
 import './App.css';
+import Landing from './pages/PageLanding';
+import Welcome from './pages/PageWelcome';
+import Test from './components/Test';
 
 function App() {
   return (
-    <div className="h-screen">
-      <div className="m-auto">
-        <div className='shadow-2xl	box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);'>
-          <div className='flex'>
-            <div className='w-80'>
-              <img className="w-80 shadow-box" src="/slogan.png" alt="image" />
-            </div>
-            <div className='w-80 relative'>
-              <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
-                <img className="h-10 shadow-box" src="/btn_google_signin_dark_pressed_web@2x.png" alt="signin" />
-                <p className='text-xs text-neutral-500 text-center mt-0.5'>Login with LSU email</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <>
+      <Landing/>
+      {/* <Welcome/> */}
+      {/* <Test/> */}
+    </>
   )
 }
 
