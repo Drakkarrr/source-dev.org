@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import initializeAuth from "../firebase.init"
-import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import Welcome from '../pages/PageWelcome'
 import { useNavigate } from 'react-router-dom';
 
@@ -13,19 +13,19 @@ const Landing = () => {
 
   useEffect(() => {
     console.log(user)
-  }, [user])
+  })
 
   //!  Signin the user
   const signInHandler = async () => {
-    const provider = new GoogleAuthProvider();
     const auth = getAuth();
+    const provider = new GoogleAuthProvider();
 
     await signInWithPopup(auth, provider).then((result) => {
           setUser(result.user);
           navigate('/welcome');
     });
-  };
 
+  };
 
   return (
     <>
