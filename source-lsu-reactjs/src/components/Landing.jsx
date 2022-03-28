@@ -2,34 +2,43 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import initializeAuth from "../firebase.init"
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import Welcome from '../pages/PageWelcome'
 import { useNavigate } from 'react-router-dom';
 
 
 const Landing = () => {
   initializeAuth();
   const navigate = useNavigate();
-  const [user, setUser] = useState();
+  const [user, setUser] = useState(null);
 
+    useEffect(() => {
+        if (localStorage.getItem("token")) {
+          navigate('/welcome');
+       }
+    }, [])
+    
   useEffect(() => {
-    console.log(user)
-  })
+      console.log(user)
+  },[user])
 
-  //!  Signin the user
+//!  Signin the user
   const signInHandler = async () => {
     const auth = getAuth();
     const provider = new GoogleAuthProvider();
 
     await signInWithPopup(auth, provider).then((result) => {
-          setUser(result.user);
+         setUser(result.user);
+         localStorage.setItem("token", result.user);
           navigate('/welcome');
     });
 
   };
 
+
+  
+
   return (
     <>
-      {!!user ? <Welcome setUser={setUser} /> : <div className="flex h-screen">
+      <div className="flex h-screen">
         <div className="m-auto">
           <div className='shadow-2xl	box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);'>
             <div className='flex'>
@@ -44,7 +53,7 @@ const Landing = () => {
             </div>
           </div>
         </div>
-      </div>}
+      </div>
     </>
   )
 }

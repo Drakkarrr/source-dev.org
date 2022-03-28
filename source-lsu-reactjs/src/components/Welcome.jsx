@@ -1,9 +1,9 @@
-import React from 'react'
+import React,{ useEffect } from 'react'
 import logo from '../assets/source-logo.png'
 import styled from 'styled-components';
-import { getAuth, signOut } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 import initializeAuth from "../firebase.init";
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Welcome = () => {
   initializeAuth()
@@ -11,11 +11,20 @@ const Welcome = () => {
   const user = auth.currentUser;
   const navigate = useNavigate();
 
+    useEffect(() => {
+        if (!localStorage.getItem("token")) {
+          navigate('/');
+       }
+    }, [navigate])
+    
   //!  Logout the user
-  const logout =  () => {
-    signOut(auth).then(() => {
+  const logoutHandler =  () => {
+    auth.signOut().then(() => {
+      localStorage.removeItem("token");
       navigate('/');
-      console.log('user successfully signed out');
+      console.log('signed out');
+    }).catch((error) => {
+      console.log(error);
     })
   }
 
@@ -43,7 +52,7 @@ const Welcome = () => {
               </div>
 
               <div className='buttons'>
-                <button onClick={() => logout()} className="bg-purple-600 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-purple-800 transition duration-300">LOGOUT</button>
+                <button onClick={logoutHandler} className="bg-purple-600 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-purple-800 transition duration-300">LOGOUT</button>
                 <button className="bg-blue-500 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-blue-700 transition duration-300">GET STARTED</button>
               </div>
             </StyledContainer>
