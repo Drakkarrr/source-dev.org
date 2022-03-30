@@ -1,39 +1,38 @@
-import React,{ useEffect } from 'react';
-import { getAuth, signOut } from "firebase/auth";
-import logo from '../assets/source-logo.png';
+import React, { useEffect, useState } from "react";
+import logo from '../assets/source-logo.png'
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
+import { auth, db, logout } from '../auth/firebase';
 import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
+import { query, collection, getDocs, where } from "firebase/firestore";
 
-const Welcome = () => {
+const Home = () => {
+  const [user, loading, error] = useAuthState(auth);
+  const [name, setName] = useState("");
   const navigate = useNavigate();
 
-    useEffect(() => {
-      if(!localStorage.getItem("token")) {
-          navigate('/');
+  const fetchUserName = async () => {
+    try {
+      const q = query(collection(db, "users"), where("uid", "==", user?.uid));
+      const doc = await getDocs(q);
+      const data = doc.docs[0].data();
+
+      setName(data.name);
+    } catch (err) {
+        console.error(err);
+        alert("Successfully signed out");
       }
-    }, [navigate])
-    
-
-  //!  Logout the user
-  const logoutHandler = () => {
-    const auth = getAuth();
-
-    signOut(auth)
-    .then((res) => {
-      localStorage.removeItem("token");
-      navigate('/');
-      console.log('signed out!', res);
-    })
-    .catch((err) => {
-      console.log('err', err);
-    })
   };
 
-  
-  //!  To navigate user to ballot page
-  const toBallot = () => {
-    navigate('/ballot')
-  }
+  useEffect(() => {
+    if (loading) return;
+    if (!user) {
+      navigate("/");
+      localStorage.removeItem("token");
+    }
+
+    fetchUserName();
+  }, [user, loading, error]);
 
   return (
     <>
@@ -48,7 +47,7 @@ const Welcome = () => {
                 </StyledLogoContainer>
               </div>
               <div className='w-80 relative'>
-                <h1>WELCOME!</h1>
+                <h1>WELCOME! {name} {user?.email}</h1>
               </div>
               <div className='w-80 relative'>
                 <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, eveniet!</h2>
@@ -58,8 +57,8 @@ const Welcome = () => {
               </div>
 
               <div className='buttons'>
-                <button onClick={logoutHandler} className="bg-purple-600 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-purple-800 transition duration-300">LOGOUT</button>
-                <button onClick={toBallot} className="bg-blue-500 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-blue-700 transition duration-300">GET STARTED</button>
+                <button onClick={logout} className="bg-purple-600 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-purple-800 transition duration-300">LOGOUT</button>
+                <button className="bg-blue-500 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-blue-700 transition duration-300">GET STARTED</button>
               </div>
             </StyledContainer>
           </div>
@@ -70,7 +69,7 @@ const Welcome = () => {
   )
 }
 
-export default Welcome;
+export default Home;
 
 const StyledLogoContainer = styled.div`
   width: auto;
