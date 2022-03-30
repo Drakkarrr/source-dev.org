@@ -1,3 +1,7 @@
+import { initializeApp } from "firebase/app";
+import { getAuth } from 'firebase/auth';
+import { getFirestore }  from "firebase/firestore";
+
 const firebaseConfig = {
     apiKey: "AIzaSyBaPu6pwXCfdq0y6L5FbSLJ_P2fKM4WAxM",
     authDomain: "ts-react-auth-fb2b5.firebaseapp.com",
@@ -8,4 +12,7 @@ const firebaseConfig = {
   };
 
 
-  export default firebaseConfig;
+const app = initializeApp(firebaseConfig);
+const authentication = getAuth(app);
+const db = getFirestore(app);
+export { authentication, db }

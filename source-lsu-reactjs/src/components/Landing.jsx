@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import initializeAuth from "../firebase.init"
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { authentication } from '../auth/firebase'
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
 
 
 const Landing = () => {
-  initializeAuth();
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
 
@@ -14,27 +13,27 @@ const Landing = () => {
         if (localStorage.getItem("token")) {
           navigate('/welcome');
        }
-    }, [])
+    }, [navigate])
     
   useEffect(() => {
       console.log(user)
   },[user])
 
-//!  Signin the user
+
+  //!  Signin the user
   const signInHandler = async () => {
-    const auth = getAuth();
     const provider = new GoogleAuthProvider();
 
-    await signInWithPopup(auth, provider).then((result) => {
-         setUser(result.user);
-         localStorage.setItem("token", result.user);
+    await signInWithPopup(authentication, provider)
+       .then((res) => {
+        setUser(res.user);
+        localStorage.setItem("token", res.user);
           navigate('/welcome');
-    });
-
+       })
+       .catch((err) => {
+        console.log(err);
+       })
   };
-
-
-  
 
   return (
     <>

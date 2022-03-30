@@ -1,23 +1,35 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import logo from '../assets/source-logo.png'
 import styled from 'styled-components';
 import { getAuth, signOut } from "firebase/auth";
-import initializeAuth from "../firebase.init";
 import { useNavigate } from 'react-router-dom';
 
 const Welcome = () => {
-  initializeAuth()
-  const auth = getAuth();
   const navigate = useNavigate();
+  const user = auth.currentUser;
+  const auth = getAuth();
 
-  const logOut = async () => {
-    await signOut(auth).then(() => {
-      navigate('/')
-      console.log('signed out');
-    }).catch((error) => {
-      console.log(error);
-    });
-  }
+    useEffect(() => {
+        if (!localStorage.getItem("token")) {
+          navigate('/');
+       }
+    }, [navigate])
+    
+
+  //!  Logout the user
+  const logoutHandler = () => {
+    const auth = getAuth();
+
+    signOut(auth)
+    .then((res) => {
+      localStorage.removeItem("token");
+      navigate('/');
+      console.log('signed out!', res);
+    })
+    .catch((err) => {
+      console.log('err', err);
+    })
+  };
 
 
   return (
@@ -33,14 +45,14 @@ const Welcome = () => {
                 </StyledLogoContainer>
               </div>
               <div className='w-80 relative'>
-                <h1>WELCOME Back!</h1>
+                <h1>WELCOME Back {user.displayName}!</h1>
               </div>
               <div className='w-80 relative'>
                 <p>Lorem ipsum dolor Similique ratione cumque sed deserunt animi id, ab porro laboriosam magnam culpa quam illo, error quidem libero autem sapiente? Incidunt, enim dolor?</p>
               </div>
 
               <div className='buttons'>
-                <button onClick={logOut} className="bg-purple-600 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-purple-800 transition duration-300">LOGOUT</button>
+                <button onClick={logoutHandler} className="bg-purple-600 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-purple-800 transition duration-300">LOGOUT</button>
                 <button className="bg-blue-500 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-blue-700 transition duration-300">VIEW RESULTS</button>
               </div>
             </StyledContainer>

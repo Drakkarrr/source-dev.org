@@ -1,33 +1,32 @@
 import React, { useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import {useNavigate} from 'react-router-dom';
-
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import './App.css';
+import Ballot from './pages/PageBallot';
 import Landing from './pages/PageLanding';
 import Welcome from './pages/PageWelcome';
-import PageWelcomeBack from './pages/PageWelcomeBack';
+
+
 
 const App = () => {
   const navigate = useNavigate();
 
- useEffect(() => {
-        if (!localStorage.getItem("token")) {
-          navigate('/');
-        } else {
-          navigate('/welcome');
-            
-       }
- }, [])
-    
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      navigate('/');
+    } else {
+      navigate('/welcome');
+    }
+  }, [navigate])
+
   return (
     <>
       <Routes>
-        <Route path='/' element={<Landing />}/>
+        <Route exact path='/' element={<Landing />} />
         <Route path='/welcome' element={<Welcome />} />
-        <Route path='/welcome-back' element={<PageWelcomeBack/>} />
+        <Route path='/ballot' element={<Ballot/>} />
       </Routes>
     </>
   )
-} 
+}
 
 export default App;
