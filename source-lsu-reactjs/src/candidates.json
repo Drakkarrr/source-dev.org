@@ -1,0 +1,30 @@
+{
+    "presidential": [
+      {
+        "id": 1,
+        "first_name": "Bogart",
+        "last_name": "Makabugto"
+      },
+
+      {
+        "id": 2,
+        "first_name": "Johnny",
+        "last_name": "Sins"
+      }
+    ],
+    
+    "vicepresidential": [
+      {
+        "id": 3,
+        "first_name": "John",
+        "last_name": "Doe"
+      },
+
+      {
+        "id": 4,
+        "first_name": "Lex",
+        "last_name": "Erole"
+      } 
+    ]
+  }
+  

@@ -1,89 +1,85 @@
-import React, { useEffect, useState } from "react";
-import logo from '../assets/source-logo.png'
-import { useAuthState } from "react-firebase-hooks/auth";
-import { useNavigate } from "react-router-dom";
-import { auth, db, logout } from '../auth/firebase';
-import styled from 'styled-components';
-import { query, collection, getDocs, where } from "firebase/firestore";
+import React, { useEffect, useState } from 'react';
+import { collection, addDoc, getDocs } from '../auth/firebase'
 
-const Home = () => {
-  const [user, loading, error] = useAuthState(auth);
-  const [name, setName] = useState("");
-  const navigate = useNavigate();
+//!  Components
+import Ballot from './Ballot';
 
-  const fetchUserName = async () => {
-    try {
-      const q = query(collection(db, "users"), where("uid", "==", user?.uid));
-      const doc = await getDocs(q);
-      const data = doc.docs[0].data();
+const Home = ({ db, firebase, candidates, user, setUser }) => {
+    const [data, setData] = useState({
+        selectedCandidate: null,
+        votes: null,
+        activeTab: 1
+    });
+    const userCollectionRef = collection(db, 'users');
 
-      setName(data.name);
-    } catch (err) {
-        console.error(err);
-        alert("Successfully signed out");
-      }
-  };
+    //!  Get user and user's votes
+    useEffect(() => {
+        const getUsers = async () => {
+          const data = await getDocs(userCollectionRef);
+    
+          let votes = [];
+          data.docs.map((_doc) => {
+            const doc = _doc.data();
+            if (doc.candidates) {
+              if (doc.candidates.presidential) {
+                const idx = votes.findIndex(
+                  (c) => c?.id === doc.candidates.presidential
+                );
+    
+                if (idx !== -1) {
+                  votes[idx].counts++;
+                } else {
+                  votes = [
+                    ...votes,
+                    {
+                      id: doc.candidates.presidential,
+                      counts: 1,
+                    },
+                  ];
+                }
+              }
+    
+              if (doc.candidates.vicepresidential) {
+                const idx = votes.findIndex(
+                  (c) => c?.id === doc.candidates.vicepresidential
+                );
+    
+                if (idx !== -1) {
+                  votes[idx].counts++;
+                } else {
+                  votes = [
+                    ...votes,
+                    {
+                      id: doc.candidates.vicepresidential,
+                      counts: 1,
+                    },
+                  ];
+                }
+              }
+            }
+          });
+    
+          setVotes(votes);
+        };
+    
+        getUsers();
+      }, []);
 
-  useEffect(() => {
-    if (loading) return;
-    if (!user) {
-      navigate("/");
-      localStorage.removeItem("token");
-    }
-
-    fetchUserName();
-  }, [user, loading, error]);
+      //!  Unregister auth state observer
+      useEffect(() => {
+        const unregisterAuthObserver = firebase
+          .auth()
+          .onAuthStateChanged((user) => {
+            if (!user) window.location.assign('/');
+            else setUser(user?.providerData[0]);
+          });
+    
+        return () => unregisterAuthObserver();
+      }, []);
 
   return (
-    <>
-      <div className="flex h-screen">
-      <div className="m-auto">
-        <div className='grid m-auto place-items-center shadow-2xl box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);'>
-          <div className=' h-96 w-160'>
-            <StyledContainer className='container m-auto border-gray-700 shadow-box h-90 w-160'>
-              <div className='w-80 m-auto relative grid'>
-                <StyledLogoContainer className="logo-container h-auto">
-                  <img className='mt-6' src={logo} alt="source logo" />
-                </StyledLogoContainer>
-              </div>
-              <div className='w-80 relative'>
-                <h1>WELCOME! {name} {user?.email}</h1>
-              </div>
-              <div className='w-80 relative'>
-                <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, eveniet!</h2>
-              </div>
-              <div className='w-80 relative'>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique ratione cumque sed deserunt animi id, ab porro laboriosam magnam culpa quam illo, error quidem libero autem sapiente? Incidunt, enim dolor?</p>
-              </div>
-
-              <div className='buttons'>
-                <button onClick={logout} className="bg-purple-600 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-purple-800 transition duration-300">LOGOUT</button>
-                <button className="bg-blue-500 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-blue-700 transition duration-300">GET STARTED</button>
-              </div>
-            </StyledContainer>
-          </div>
-        </div>
-      </div>
-    </div>
-    </>
+    <div>Home</div>
   )
 }
 
-export default Home;
-
-const StyledLogoContainer = styled.div`
-  width: auto;
-  display: grid;
-  place-items: center;
-  height: auto;
-    img {
-      object-fit: cover;
-      width: 101px;
-    }
-`
-
-const StyledContainer = styled.div`
-  height: 100%;
-  text-align: center;
-  display: grid;
-`
+export default Home
