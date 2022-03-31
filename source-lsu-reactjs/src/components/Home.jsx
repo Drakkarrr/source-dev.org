@@ -5,12 +5,11 @@ import { collection, addDoc, getDocs } from '../auth/firebase'
 import Ballot from './Ballot';
 
 const Home = ({ db, firebase, candidates, user, setUser }) => {
-    const [data, setData] = useState({
-        selectedCandidate: null,
-        votes: null,
-        activeTab: 1
-    });
-    const userCollectionRef = collection(db, 'users');
+  const [selectedCandidate, setSelectedCandidate] = useState(null);
+  const [votes, setVotes] = useState(null);
+  const [activeTab, setActiveTab] = useState(1);
+  const userCollectionRef = collection(db, 'users');
+
 
     //!  Get user and user's votes
     useEffect(() => {
@@ -65,6 +64,7 @@ const Home = ({ db, firebase, candidates, user, setUser }) => {
         getUsers();
       }, []);
 
+      
       //!  Unregister auth state observer
       useEffect(() => {
         const unregisterAuthObserver = firebase

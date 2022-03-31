@@ -11,13 +11,14 @@ import Ballot from './components/Ballot';
 const App = () => {
   const navigate = useNavigate();
 
+  //!  Protected routes: navigate user to login if not athenticated
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       navigate('/');
     } else {
       navigate('/welcome');
     }
-  }, [navigate])
+  }, [])
 
   return (
     <>
