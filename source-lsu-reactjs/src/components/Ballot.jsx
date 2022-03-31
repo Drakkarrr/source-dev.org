@@ -1,4 +1,5 @@
 import React from 'react';
+import 'firebase/compat/auth';
 
 const Ballot = ({ candidates, selectedCandidate, onClick }) => {
 
@@ -30,7 +31,7 @@ const Ballot = ({ candidates, selectedCandidate, onClick }) => {
         <>
             <div className="wrapper">
                 <h1 className="title mb-3">Official Ballot</h1>
-                <div className="card">
+                {/* <div className="card">
                     <div className="card-title">Presidential Candidates</div>
                     <div className="card-body">
                         {candidates.presidential.map((data, idx) => (
@@ -42,9 +43,9 @@ const Ballot = ({ candidates, selectedCandidate, onClick }) => {
                             />
                         ))}
                     </div>
-                </div>
+                </div> */}
 
-                <div className="card">
+                {/* <div className="card">
                     <div className="card-title">Vice Presidential Candidates</div>
                     <div className="card-body">
                         {candidates.vicepresidential.map((data, idx) => (
@@ -56,10 +57,10 @@ const Ballot = ({ candidates, selectedCandidate, onClick }) => {
                             />
                         ))}
                     </div>
-                </div>
+                </div> */}
             </div>
         </>
-    )
-}
+    );
+};
 
 export default Ballot;

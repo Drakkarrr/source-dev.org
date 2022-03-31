@@ -39,7 +39,7 @@ const Home = () => {
 
   //! Navigate user to voting/ballot page
   const toBallot = () => {
-    navigate('/ballot')
+    navigate('/home')
   }
 
   return (
@@ -66,7 +66,7 @@ const Home = () => {
 
               <div className='buttons'>
                 <button onClick={logout} className="bg-purple-600 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-purple-800 transition duration-300">LOGOUT</button>
-                <button onClick={toBallot} className="bg-blue-500 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-blue-700 transition duration-300">GET STARTED</button>
+                <button onClick={toBallot}  className="bg-blue-500 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-blue-700 transition duration-300">GET STARTED</button>
               </div>
             </StyledContainer>
           </div>
