@@ -23,7 +23,6 @@ const Home = () => {
       setName(data.name);
     } catch (err) {
         console.error(err);
-        alert("Successfully signed out");
       }
   };
 
@@ -32,6 +31,8 @@ const Home = () => {
     if (!user) {
       navigate("/");
       localStorage.removeItem("token");
+      alert("Successfully signed out");
+
     }
 
     fetchUserName();

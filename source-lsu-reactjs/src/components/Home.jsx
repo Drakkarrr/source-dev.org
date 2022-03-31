@@ -9,7 +9,12 @@ const Home = ({ db, firebase, candidates, user, setUser }) => {
   const [selectedCandidate, setSelectedCandidate] = useState(null);
   const [votes, setVotes] = useState(null);
   const [activeTab, setActiveTab] = useState(1);
+<<<<<<< HEAD
   const collectionRef  = collection(db, 'users');
+=======
+  const userCollectionRef = collection(db, 'users');
+
+>>>>>>> befe7f4cf0606f06da2968ff1bccfa5d80e43439
 
   
   //!  Get user and user's votes
@@ -39,6 +44,7 @@ const Home = ({ db, firebase, candidates, user, setUser }) => {
             }
           }
 
+<<<<<<< HEAD
           if (doc.candidates.vicepresidential) {
             const idx = votes.findIndex(
               (c) => c?.id === doc.candidates.vicepresidential
@@ -99,6 +105,20 @@ const Home = ({ db, firebase, candidates, user, setUser }) => {
       window.location.reload();
     });
   };
+=======
+      
+      //!  Unregister auth state observer
+      useEffect(() => {
+        const unregisterAuthObserver = firebase
+          .auth()
+          .onAuthStateChanged((user) => {
+            if (!user) window.location.assign('/');
+            else setUser(user?.providerData[0]);
+          });
+    
+        return () => unregisterAuthObserver();
+      }, []);
+>>>>>>> befe7f4cf0606f06da2968ff1bccfa5d80e43439
 
   return (
     <section>

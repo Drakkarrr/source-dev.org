@@ -16,13 +16,14 @@ const App = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
 
+  //!  Protected routes: navigate user to login if not athenticated
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       navigate('/');
     } else {
       navigate('/welcome');
     }
-  }, [navigate])
+  }, [])
 
   const welcomeProps = {
     candidates,
