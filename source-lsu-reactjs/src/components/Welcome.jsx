@@ -40,7 +40,7 @@ const Home = () => {
 
   //! Navigate user to voting/ballot page
   const toBallot = () => {
-    navigate('/home')
+    navigate('/ballot')
   }
 
   return (
