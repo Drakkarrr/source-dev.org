@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
-
-import 'firebase/compat/auth';
 import './App.css';
 
 //!  Components
 import Login from './components/Login';
+import ThankYou from './components/ThankYou';
 import Welcome from './components/Welcome';
 import PageBallot from './pages/PageBallot';
 
@@ -29,6 +28,7 @@ const App = () => {
         <Route exact path='/' element={<Login/> } />
         <Route path='/welcome' element={<Welcome />} />
         <Route path='/ballot' element={<PageBallot/>} />
+        <Route path='/thank-you' element={<ThankYou/>} />
       </Routes>
     </>
   )

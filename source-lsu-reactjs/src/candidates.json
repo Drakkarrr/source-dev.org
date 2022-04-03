@@ -1,28 +1,107 @@
 {
-    "presidential": [
+  "presidential": {
+    "title": "President",
+    "list": [
       {
         "id": 1,
-        "first_name": "Bogart",
-        "last_name": "Makabugto"
+        "first_name": "Ernie",
+        "last_name": "Abella"
       },
       {
         "id": 2,
-        "first_name": "Johnny",
-        "last_name": "Sins"
-      }
-    ],
-    
-    "vicepresidential": [
+        "first_name": "Leody",
+        "last_name": "De Huzman"
+      },
       {
         "id": 3,
-        "first_name": "John",
-        "last_name": "Doe"
+        "first_name": "Isko Moreno",
+        "last_name": "Domagoso"
       },
       {
         "id": 4,
-        "first_name": "Lex",
-        "last_name": "Erole"
-      } 
+        "first_name": "Norberto",
+        "last_name": "Gonzales"
+      },
+      {
+        "id": 5,
+        "first_name": "Ping",
+        "last_name": "Lacson"
+      },
+      {
+        "id": 6,
+        "first_name": "Faisal",
+        "last_name": "Mangondato"
+      },
+      {
+        "id": 7,
+        "first_name": "Bongbong",
+        "last_name": "Marcos"
+      },
+      {
+        "id": 8,
+        "first_name": "Jose",
+        "last_name": "Montemayor"
+      },
+      {
+        "id": 9,
+        "first_name": "Manny",
+        "last_name": "Packquiao"
+      },
+      {
+        "id": 10,
+        "first_name": "Leni",
+        "last_name": "Robredo"
+      }
+    ]
+  },
+  "vicepresidential": {
+    "title": "Vice President",
+    "list": [
+      {
+        "id": 11,
+        "first_name": "Lito",
+        "last_name": "Atienza"
+      },
+      {
+        "id": 12,
+        "first_name": "Walden",
+        "last_name": "Bello"
+      },
+      {
+        "id": 13,
+        "first_name": "Rizalito",
+        "last_name": "David"
+      },
+      {
+        "id": 14,
+        "first_name": "Sara",
+        "last_name": "Duterte"
+      },
+      {
+        "id": 15,
+        "first_name": "Manny SD",
+        "last_name": "Lopez"
+      },
+      {
+        "id": 16,
+        "first_name": "Doc Willie",
+        "last_name": "Ong"
+      },
+      {
+        "id": 17,
+        "first_name": "Kiko",
+        "last_name": "Pangilinan"
+      },
+      {
+        "id": 18,
+        "first_name": "Carlos",
+        "last_name": "Serapio"
+      },
+      {
+        "id": 19,
+        "first_name": "Vicente Tito",
+        "last_name": "Sotto"
+      }
     ]
   }
-  
+}

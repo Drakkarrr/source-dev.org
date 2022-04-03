@@ -12,6 +12,7 @@ const Home = () => {
   const [user, loading, error] = useAuthState(auth);
   const [name, setName] = useState("");
   const navigate = useNavigate();
+  const userName = name;
 
   //!  Fetch the data of logged in user 
   const fetchUserName = async () => {
@@ -56,7 +57,7 @@ const Home = () => {
                 </StyledLogoContainer>
               </div>
               <div className='w-80 relative'>
-                <h1>WELCOME! {name} {user?.email}</h1>
+                <h1>WELCOME! {userName} {user?.email}</h1>
               </div>
               <div className='w-80 relative'>
                 <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, eveniet!</h2>
