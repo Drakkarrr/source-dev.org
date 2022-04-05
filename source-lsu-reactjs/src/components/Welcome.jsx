@@ -9,7 +9,7 @@ import { auth, db, logout } from '../auth/firebase';
 import { query, collection, getDocs, where } from "firebase/firestore";
 
 const Home = () => {
-  const [user, loading, error] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
   const [name, setName] = useState("");
   const navigate = useNavigate();
   const userName = name;
@@ -23,8 +23,8 @@ const Home = () => {
 
       setName(data.name);
     } catch (err) {
-        console.error(err);
-      }
+      console.error(err);
+    }
   };
 
   useEffect(() => {
@@ -37,7 +37,7 @@ const Home = () => {
     }
 
     fetchUserName();
-  }, [user, loading, error]);
+  });
 
   //! Navigate user to voting/ballot page
   const toBallot = () => {
@@ -45,8 +45,7 @@ const Home = () => {
   }
 
   return (
-    <>
-      <div className="flex h-screen">
+    <div className="flex h-screen">
       <div className="m-auto">
         <div className='grid m-auto place-items-center shadow-2xl box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);'>
           <div className=' h-96 w-160'>
@@ -57,7 +56,7 @@ const Home = () => {
                 </StyledLogoContainer>
               </div>
               <div className='w-80 relative'>
-                <h1>WELCOME! {userName} {user?.email}</h1>
+                <h1>WELCOME {userName}!</h1>
               </div>
               <div className='w-80 relative'>
                 <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, eveniet!</h2>
@@ -68,14 +67,13 @@ const Home = () => {
 
               <div className='buttons'>
                 <button onClick={logout} className="bg-purple-600 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-purple-800 transition duration-300">LOGOUT</button>
-                <button onClick={toBallot}  className="bg-blue-500 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-blue-700 transition duration-300">GET STARTED</button>
+                <button onClick={toBallot} className="bg-blue-500 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-blue-700 transition duration-300">GET STARTED</button>
               </div>
             </StyledContainer>
           </div>
         </div>
       </div>
     </div>
-    </>
   )
 }
 

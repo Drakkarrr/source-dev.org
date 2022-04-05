@@ -1,22 +1,38 @@
-import React, { useState } from 'react';
-import { query, collection, addDoc, getDocs, where } from 'firebase/firestore';
+import React, { useState, useEffect } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth, db } from '../auth/firebase';
-import _ from 'lodash';
+import { query, collection, doc, updateDoc, where } from 'firebase/firestore';
+import { auth, db, getDocs } from '../auth/firebase';
 import { useNavigate } from 'react-router-dom';
+import _ from 'lodash';
 
-//! Components
+//!  Candidates
 import Candidate from './Candidate';
-
-//! Candidates
 import candidates from '../candidates.json';
+
+//! Helpers
+import * as helpers from '../helpers/index';
+
 
 const Ballot = () => {
   const [user] = useAuthState(auth);
-  const [selectedCandidate, setSelectedCandidate] = useState(null);
   const navigate = useNavigate();
+  const [selectedCandidate, setSelectedCandidate] = useState(null);
 
-  //!  Get the user and store to firestore
+  //!  Storing query candidate stats count
+  useEffect(async () => {
+    const q = query(collection(db, 'users'));
+    const doc = await getDocs(q);
+    const list = doc.docs.map((doc) => doc.data());
+    console.log('cc-doc.docs', list);
+
+    const data1 = helpers.getAllStatistics(list, candidates);
+    console.log('cc-data1', data1);
+
+    // const data2 = helpers.getStatisticsByName(list, 'Domagoso, Isko Moreno', 'presidential');
+    // console.log('cc-data2', data2);
+  }, []);
+
+  //!  Get the voter id
   const getUserId = async () => {
     try {
       const q = query(collection(db, 'users'), where('uid', '==', user?.uid));
@@ -27,45 +43,35 @@ const Ballot = () => {
     }
   };
 
-  //!  Get the selected candidate bu user to firestore
-  const handleOnSelectCandidate = async (data) => {
+  //!  Handle the voter's selected candidates
+  const handleOnSelectCandidate = async (obj) => {
     setSelectedCandidate({
       ...selectedCandidate,
       candidates: {
         ...selectedCandidate?.candidates,
-        [`${data.name}_id`]: data.id,
+        [obj.name]: obj.data,
       },
-      user_id: await getUserId(),
     });
   };
 
-  //!  Pass the vote submission to user field
+  //!  Submits the voter's voted candidates
   const handleOnSubmit = async () => {
-    await addDoc(collection(db, 'users'), selectedCandidate).then(() => {
+    const userId = await getUserId();
+    const docRef = doc(db, 'users', userId);
+    await updateDoc(docRef, { ...selectedCandidate }).then(() => {
       setSelectedCandidate(null);
-      window.alert('Thank you for voting!');
       navigate('/thank-you')
     });
   };
 
-  const Card = ({ title, list, name, onSelectCandidate, ...props }) => {
+  //!  Card container for ballot
+  const Card = ({ title, children, ...props }) => {
     return (
       <div className="card rounded border border-blue-500 my-10" {...props}>
         <h1 className="text-white font-semibold text-xl tracking-wide bg-blue-500 px-3 py-2">
           {title}
         </h1>
-        <div className="flex flex-wrap p-1">
-          {_.map(list, (data, idx) => (
-            <Candidate
-              key={idx}
-              data={data}
-              name={name}
-              list={selectedCandidate?.candidates}
-              onSelectCandidate={onSelectCandidate}
-              className="hover:bg-blue-50 rounded w-1/2 py-2 px-3"
-            />
-          ))}
-        </div>
+        <div className="flex flex-wrap p-1">{children}</div>
       </div>
     );
   };
@@ -75,13 +81,18 @@ const Ballot = () => {
       {_.map(_.keys(candidates), (name, idx) => {
         const { title, list } = candidates[name];
         return (
-          <Card
-            key={idx}
-            title={title}
-            list={list}
-            name={name}
-            onSelectCandidate={handleOnSelectCandidate}
-          />
+          <Card key={idx} title={title}>
+            {_.map(list, (data, idx) => (
+              <Candidate
+                key={idx}
+                data={data}
+                name={name}
+                list={selectedCandidate?.candidates}
+                onSelectCandidate={handleOnSelectCandidate}
+                className="hover:bg-blue-50 rounded w-1/2 py-2 px-3"
+              />
+            ))}
+          </Card>
         );
       })}
       <button

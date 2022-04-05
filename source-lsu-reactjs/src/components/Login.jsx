@@ -22,7 +22,6 @@ const Login = () => {
   }, [user, loading, error, navigate]);
 
   return (
-    <>
       <div className="flex h-screen">
         <div className="m-auto">
           <div className='shadow-2xl	box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);'>
@@ -39,7 +38,6 @@ const Login = () => {
           </div>
         </div>
       </div>
-  </>
   )
 }
 
