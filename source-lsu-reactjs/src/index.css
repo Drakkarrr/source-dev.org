@@ -19,3 +19,38 @@ code {
 .shadow-box {
   box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
 }
+
+h1 {
+  color: #005B1A;
+}
+
+h2 {
+  width: 35rem !important;
+  position: relative;
+  left: -100px;
+}
+
+p {
+  width: 38rem;
+  position: relative;
+  left: -130px;
+  line-height: 23px;
+}
+
+.container {
+  width: 50vw;
+  place-items: center;
+}
+
+/* .main-container {
+  background-color: red;
+} */
+
+.buttons {
+  width: 50%;
+}
+
+button.main {
+  background-color: #005B1A !important;
+  border: 0;
+}

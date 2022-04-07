@@ -7,6 +7,8 @@ import Login from './components/Login';
 import ThankYou from './components/ThankYou';
 import Welcome from './components/Welcome';
 import PageBallot from './pages/PageBallot';
+import WelcomeBack  from './components/WelcomeBack';
+import Results from './components/Results';
 
 
 const App = () => {
@@ -29,6 +31,8 @@ const App = () => {
         <Route path='/welcome' element={<Welcome />} />
         <Route path='/ballot' element={<PageBallot/>} />
         <Route path='/thank-you' element={<ThankYou/>} />
+        <Route path='/welcome-back' element={<WelcomeBack/>} />
+        <Route path='/results' element={<Results/>} />
       </Routes>
     </>
   )

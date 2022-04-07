@@ -60,7 +60,7 @@ const Ballot = () => {
     const docRef = doc(db, 'users', userId);
     await updateDoc(docRef, { ...selectedCandidate }).then(() => {
       setSelectedCandidate(null);
-      navigate('/thank-you')
+      navigate('/Thank-You')
     });
   };
 

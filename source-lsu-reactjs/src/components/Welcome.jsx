@@ -32,8 +32,6 @@ const Home = () => {
     if (!user) {
       navigate("/");
       localStorage.removeItem("token");
-      alert("Successfully signed out");
-
     }
 
     fetchUserName();
@@ -56,18 +54,18 @@ const Home = () => {
                 </StyledLogoContainer>
               </div>
               <div className='w-80 relative'>
-                <h1>WELCOME {userName}!</h1>
+                <h1 className="font-bold text-2xl">WELCOME {userName}!</h1>
               </div>
               <div className='w-80 relative'>
-                <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, eveniet!</h2>
+                <h2 className="font-bold w-9/12 mt-px text-base">La Salle University - OZC Student Organization Utilizing the Realm of Computer Eclecticism ELECTION for A.Y 2022 - 2023 OFFICERS.</h2>
               </div>
               <div className='w-80 relative'>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique ratione cumque sed deserunt animi id, ab porro laboriosam magnam culpa quam illo, error quidem libero autem sapiente? Incidunt, enim dolor?</p>
+                <p className="font-semibold">Student(s) can only elect officers once. Do not close the page while still voting, you will be automatically redirected to logout and reset selected candidates. Choose one (1) candidate per position, Thank you!</p>
               </div>
 
-              <div className='buttons'>
-                <button onClick={logout} className="bg-purple-600 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-purple-800 transition duration-300">LOGOUT</button>
-                <button onClick={toBallot} className="bg-blue-500 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-blue-700 transition duration-300">GET STARTED</button>
+              <div className='buttons flex justify-between'>
+                <button onClick={logout} className="main text-white px-4 py-2 rounded-md text-1xl font-bold hover:bg-purple-800 transition duration-300">LOGOUT</button>
+                <button onClick={toBallot} className="main text-white px-4 py-2 rounded-md text-1xl font-bold hover:bg-blue-700 transition duration-300">GET STARTED</button>
               </div>
             </StyledContainer>
           </div>
