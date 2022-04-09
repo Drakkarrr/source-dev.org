@@ -44,6 +44,8 @@ const ThankYou = () => {
         <div class="ml-3 text-sm font-normal">Vote submitted! <br /> Thank you for voting {userName}!</div>
         <button onClick={logout} className="main bg-blue-500 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-blue-700 transition duration-300">Logout</button>
       </div>
+
+      <button onClick={() => navigate('/welcome-back')} className="bg-blue-500 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-blue-700 transition duration-300 m-8">Welcome Back</button>
     </>
   )
 }

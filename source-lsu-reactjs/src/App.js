@@ -31,6 +31,8 @@ const App = () => {
         <Route path='/welcome' element={<Welcome />} />
         <Route path='/ballot' element={<PageBallot/>} />
         <Route path='/thank-you' element={<ThankYou/>} />
+
+        //!  Soon to be open protected routes
         <Route path='/welcome-back' element={<WelcomeBack/>} />
         <Route path='/results' element={<Results/>} />
       </Routes>

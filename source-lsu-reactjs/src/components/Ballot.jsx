@@ -23,10 +23,13 @@ const Ballot = () => {
     const q = query(collection(db, 'users'));
     const doc = await getDocs(q);
     const list = doc.docs.map((doc) => doc.data());
-    console.log('cc-doc.docs', list);
+    
+    //! Per user counts
+    // console.log('counts list', list);
 
+    //!  Toltal candidates counts
     const data1 = helpers.getAllStatistics(list, candidates);
-    console.log('cc-data1', data1);
+    console.log('Candidates total counts', data1);
 
     // const data2 = helpers.getStatisticsByName(list, 'Domagoso, Isko Moreno', 'presidential');
     // console.log('cc-data2', data2);
