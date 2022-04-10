@@ -23,7 +23,7 @@ const Ballot = () => {
     const q = query(collection(db, 'users'));
     const doc = await getDocs(q);
     const list = doc.docs.map((doc) => doc.data());
-    
+
     //! Per user counts
     // console.log('counts list', list);
 

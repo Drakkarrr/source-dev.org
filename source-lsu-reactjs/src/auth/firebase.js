@@ -22,6 +22,7 @@ const provider = new GoogleAuthProvider();
 
 //!  Signin handler
 const signInWithGoogle = async () => {
+  
   try {
     const res = await signInWithPopup(auth, provider)
     const user = res.user;
@@ -29,6 +30,7 @@ const signInWithGoogle = async () => {
     const q = query(collection(db, "users"), where("uid", "==", user.uid));
     const docs = await getDocs(q);
 
+    
     if (docs.docs.length === 0) {
       await addDoc(collection(db, "users"), {
         uid: user.uid,
@@ -36,7 +38,7 @@ const signInWithGoogle = async () => {
         authProvider: "google",
         email: user.email,
       });
-    
+      
     }
   } catch (err) {
     console.error(err);
@@ -47,7 +49,7 @@ const signInWithGoogle = async () => {
 
 //!  Logout handler
 const logout = () => {
-  signOut(auth)
+  signOut(auth);
 };
 
 

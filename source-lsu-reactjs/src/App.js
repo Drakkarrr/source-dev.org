@@ -8,7 +8,7 @@ import ThankYou from './components/ThankYou';
 import Welcome from './components/Welcome';
 import PageBallot from './pages/PageBallot';
 import WelcomeBack  from './components/WelcomeBack';
-import Results from './components/Results';
+import PageResults from './pages/PageResults';
 
 
 const App = () => {
@@ -34,7 +34,7 @@ const App = () => {
 
         //!  Soon to be open protected routes
         <Route path='/welcome-back' element={<WelcomeBack/>} />
-        <Route path='/results' element={<Results/>} />
+        <Route path='/results' element={<PageResults/>} />
       </Routes>
     </>
   )
