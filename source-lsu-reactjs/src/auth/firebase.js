@@ -1,7 +1,8 @@
 import { initializeApp } from "firebase/app";
-import { GoogleAuthProvider, getAuth, signInWithPopup, signOut} from "firebase/auth";
+import { GoogleAuthProvider, getAuth, signInWithPopup, signOut } from "firebase/auth";
 import { getFirestore, query, getDocs, collection, where, addDoc } from "firebase/firestore";
 
+import { setCookie, clearCookies } from "../helpers/cookie";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBaPu6pwXCfdq0y6L5FbSLJ_P2fKM4WAxM",
@@ -22,15 +23,15 @@ const provider = new GoogleAuthProvider();
 
 //!  Signin handler
 const signInWithGoogle = async () => {
-  
   try {
     const res = await signInWithPopup(auth, provider)
     const user = res.user;
     localStorage.setItem("token", res.user);
+    setCookie("userCookie")
+
     const q = query(collection(db, "users"), where("uid", "==", user.uid));
     const docs = await getDocs(q);
 
-    
     if (docs.docs.length === 0) {
       await addDoc(collection(db, "users"), {
         uid: user.uid,
@@ -38,17 +39,17 @@ const signInWithGoogle = async () => {
         authProvider: "google",
         email: user.email,
       });
-      
     }
   } catch (err) {
     console.error(err);
-    alert(err.message);
+    // alert(err.message);
   }
 };
 
 
 //!  Logout handler
 const logout = () => {
+  clearCookies();
   signOut(auth);
 };
 

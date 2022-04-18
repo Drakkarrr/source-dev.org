@@ -7,18 +7,21 @@ import { useNavigate } from "react-router-dom";
 import { auth, signInWithGoogle } from '../auth/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
+
 const Login = () => {
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
 
   //!  Adds user token to localStorage upon signin
-  useEffect(() => {
+  useEffect(() => {  
     if (user && localStorage.getItem("token")) {
       navigate('/welcome');
       console.log(user);
     }
-    else navigate("/");
-     
+    else {
+      navigate("/")
+    }
+
   }, [user, loading, error, navigate]);
 
   return (

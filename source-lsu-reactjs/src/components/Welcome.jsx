@@ -6,14 +6,15 @@ import { useNavigate } from "react-router-dom";
 //!  Firebase
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db, logout } from '../auth/firebase';
-import { query, collection, getDocs, where } from "firebase/firestore";
+import { query, collection, getDocs, where} from "firebase/firestore";
 
-const Home = () => {
+const Welcome = () => {
   const [user, loading] = useAuthState(auth);
   const [name, setName] = useState("");
   const navigate = useNavigate();
   const userName = name;
 
+  
   //!  Fetch the data of logged in user 
   const fetchUserName = async () => {
     try {
@@ -28,10 +29,12 @@ const Home = () => {
   };
 
   useEffect(() => {
-    if (loading) return;
+    if (loading) return
+    
     if (!user) {
-      navigate("/");
       localStorage.removeItem("token");
+      navigate("/");
+
     }
 
     fetchUserName();
@@ -41,6 +44,7 @@ const Home = () => {
   const toBallot = () => {
     navigate('/ballot')
   }
+  
 
   return (
     <div className="flex h-screen">
@@ -54,8 +58,9 @@ const Home = () => {
                 </StyledLogoContainer>
               </div>
               <div className='w-80 relative'>
-                <h1 className="font-bold text-2xl">WELCOME {userName}!</h1>
+                <h1 className="font-bold text-2xl">WELCOME { userName }!</h1>
               </div>
+
               <div className='w-80 relative'>
                 <h2 className="font-bold w-9/12 mt-px text-base">La Salle University - OZC Student Organization Utilizing the Realm of Computer Eclecticism ELECTION for A.Y 2022 - 2023 OFFICERS.</h2>
               </div>
@@ -75,7 +80,7 @@ const Home = () => {
   )
 }
 
-export default Home;
+export default Welcome;
 
 const StyledLogoContainer = styled.div`
   width: auto;

@@ -4,7 +4,7 @@
     "list": [
       {
         "id": 1,
-        "img": "../src/assets/candidates/president/press-test1.jpg",
+        "avatar": "./test.jpg",
         "first_name": "Ernie",
         "last_name": "Abella"
       },

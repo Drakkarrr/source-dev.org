@@ -42,10 +42,6 @@ p {
   place-items: center;
 }
 
-/* .main-container {
-  background-color: red;
-} */
-
 .buttons {
   width: 50%;
 }
@@ -53,4 +49,10 @@ p {
 button.main {
   background-color: #005B1A !important;
   border: 0;
+}
+
+.cards {
+  /* background-color: red; */
+  display: flex;
+  justify-content: space-between;
 }

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import _ from 'lodash';
 
 //!  Candidate credentials
-const Candidate = ({ data, name, img, list, onSelectCandidate, ...props }) => {
+const Candidate = ({ data, name, list, onSelectCandidate, ...props }) => {
   const fullName = [data.last_name, data.first_name].join(', ');
   const isChecked =
     !_.isEmpty(list) && list[name]?.full_name === fullName ? 'active' : '';
@@ -11,7 +11,6 @@ const Candidate = ({ data, name, img, list, onSelectCandidate, ...props }) => {
   return (
     <StyledCandidate
       id={data.id}
-      img={data.img}
       name={name}
       onClick={() => {
         onSelectCandidate({ name, data: { ...data, full_name: fullName } });
@@ -19,7 +18,7 @@ const Candidate = ({ data, name, img, list, onSelectCandidate, ...props }) => {
       {...props}
     >
       <StyledRadioButton className={isChecked} />
-      <StyledName> {data.img} {fullName}</StyledName>
+      <StyledName>{fullName}</StyledName>
     </StyledCandidate>
   );
 };
