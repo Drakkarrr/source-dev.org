@@ -14,7 +14,7 @@ const Welcome = () => {
   const navigate = useNavigate();
   const userName = name;
 
-  
+
   //!  Fetch the data of logged in user 
   const fetchUserName = async () => {
     try {
@@ -23,14 +23,13 @@ const Welcome = () => {
       const data = doc.docs[0].data();
 
       setName(data.name);
-    } catch (err) {
-      console.error(err);
+    } catch{
+      // console.log(err);
     }
   };
 
   useEffect(() => {
-    if (loading) return
-    
+    if (loading) return fetchUserName()
     if (!user) {
       localStorage.removeItem("token");
       navigate("/");
@@ -38,7 +37,7 @@ const Welcome = () => {
     }
 
     fetchUserName();
-  });
+  }, [user, loading, navigate]);
 
   //! Navigate user to voting/ballot page
   const toBallot = () => {
@@ -58,7 +57,7 @@ const Welcome = () => {
                 </StyledLogoContainer>
               </div>
               <div className='w-80 relative'>
-                <h1 className="font-bold text-2xl">WELCOME { userName }!</h1>
+                <h1 className="font-bold text-2xl">WELCOME {userName}!</h1>
               </div>
 
               <div className='w-80 relative'>
@@ -69,7 +68,7 @@ const Welcome = () => {
               </div>
 
               <div className='buttons flex justify-between'>
-                <button onClick={logout} className="main text-white px-4 py-2 rounded-md text-1xl font-bold hover:bg-purple-800 transition duration-300">LOGOUT</button>
+                <button onClick={logout} className="g_id_signout main text-white px-4 py-2 rounded-md text-1xl font-bold hover:bg-purple-800 transition duration-300">LOGOUT</button>
                 <button onClick={toBallot} className="main text-white px-4 py-2 rounded-md text-1xl font-bold hover:bg-blue-700 transition duration-300">GET STARTED</button>
               </div>
             </StyledContainer>
