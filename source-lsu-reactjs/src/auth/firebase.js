@@ -5,12 +5,12 @@ import { getFirestore, query, getDocs, collection, where, addDoc } from "firebas
 import { setCookie, clearCookies } from "../helpers/cookie";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBaPu6pwXCfdq0y6L5FbSLJ_P2fKM4WAxM",
-  authDomain: "ts-react-auth-fb2b5.firebaseapp.com",
-  projectId: "ts-react-auth-fb2b5",
-  storageBucket: "ts-react-auth-fb2b5.appspot.com",
-  messagingSenderId: "671480162987",
-  appId: "1:671480162987:web:c64f13db4ffd73750365ee"
+  apiKey: "AIzaSyB1BuN_Ce_5cgKDmILr__F9dFEQA48xJNw",
+  authDomain: "sourcedevorg-ec468.firebaseapp.com",
+  projectId: "sourcedevorg-ec468",
+  storageBucket: "sourcedevorg-ec468.appspot.com",
+  messagingSenderId: "796241866620",
+  appId: "1:796241866620:web:25a66ca01148602671bef9"
 };
 
 
@@ -26,7 +26,8 @@ const signInWithGoogle = async () => {
   const provider = new GoogleAuthProvider();
 
   provider.setCustomParameters({
-    prompt: 'select_account'
+    prompt: 'select_account',
+    hd: "lsu.edu.ph"
   });
 
   try {

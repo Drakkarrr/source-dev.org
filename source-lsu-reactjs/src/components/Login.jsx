@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 import { auth, signInWithGoogle } from '../auth/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
-
 const Login = () => {
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();

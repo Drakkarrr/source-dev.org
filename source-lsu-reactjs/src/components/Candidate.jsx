@@ -18,7 +18,7 @@ const Candidate = ({ data, name, list, onSelectCandidate, ...props }) => {
       {...props}
     >
       <StyledRadioButton className={isChecked} />
-      <StyledName>{fullName}</StyledName>
+      <StyledName>{data.img} {fullName}</StyledName>
     </StyledCandidate>
   );
 };

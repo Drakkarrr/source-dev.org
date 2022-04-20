@@ -11,6 +11,7 @@ import candidates from '../candidates.json';
 
 //! Helpers
 import * as helpers from '../helpers/index';
+import { data } from 'autoprefixer';
 
 
 const Ballot = () => {
@@ -95,6 +96,7 @@ const Ballot = () => {
                 className="hover:bg-blue-50 rounded w-1/2 py-2 px-3"
               />
             ))}
+            { data.img }
           </Card>
         );
       })}
