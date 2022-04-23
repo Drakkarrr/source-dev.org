@@ -6,25 +6,15 @@
         "id": 1,
         "img": "{image/here}",
         "first_name": "Ernie",
-        "last_name": "Abella"
+        "last_name": "Abella",
+        "course_year": "BSIT-1"
       },
       {
         "id": 2,
         "img": "require('./testImage.txt')",
         "first_name": "Leody",
-        "last_name": "De Huzman"
-      },
-      {
-        "id": 3,
-        "img": "{image/here}",
-        "first_name": "Isko Moreno",
-        "last_name": "Domagoso"
-      },
-      {
-        "id": 4,
-        "img": "{image/here}",
-        "first_name": "John",
-        "last_name": "Doe"
+        "last_name": "De Huzman",
+        "course_year": "BSIT-1"
       }
     ]
   },
@@ -35,25 +25,15 @@
         "id": 1,
         "img": "{image/here}",
         "first_name": "Lito",
-        "last_name": "Atienza"
+        "last_name": "Atienza",
+        "course_year": "BSIT-1"
       },
       {
         "id": 2,
         "img": "{image/here}",
         "first_name": "Walden",
-        "last_name": "Bello"
-      },
-      {
-        "id": 3,
-        "img": "{image/here}",
-        "first_name": "Rizalito",
-        "last_name": "David"
-      },
-      {
-        "id": 4,
-        "img": "{image/here}",
-        "first_name": "Sara",
-        "last_name": "Duterte"
+        "last_name": "Bello",
+        "course_year": "BSIT-1"
       }
     ]
   }

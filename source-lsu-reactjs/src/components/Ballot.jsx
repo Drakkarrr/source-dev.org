@@ -1,18 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { query, collection, doc, updateDoc, where } from 'firebase/firestore';
-import { auth, db, getDocs } from '../auth/firebase';
-import { useNavigate } from 'react-router-dom';
-import _ from 'lodash';
+import React, { useState, useEffect } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { query, collection, doc, updateDoc, where } from "firebase/firestore";
+import { auth, db, getDocs } from "../auth/firebase";
+import { useNavigate } from "react-router-dom";
+import _ from "lodash";
 
 //!  Candidates
-import Candidate from './Candidate';
-import candidates from '../candidates.json';
+import Candidate from "./Candidate";
+import candidates from "../candidates.json";
 
 //! Helpers
-import * as helpers from '../helpers/index';
-import { data } from 'autoprefixer';
-
+import * as helpers from "../helpers/index";
+import { data } from "autoprefixer";
 
 const Ballot = () => {
   const [user] = useAuthState(auth);
@@ -21,7 +20,7 @@ const Ballot = () => {
 
   //!  Storing query candidate stats count
   useEffect(async () => {
-    const q = query(collection(db, 'users'));
+    const q = query(collection(db, "users"));
     const doc = await getDocs(q);
     const list = doc.docs.map((doc) => doc.data());
 
@@ -30,7 +29,7 @@ const Ballot = () => {
 
     //!  Toltal candidates counts
     const data1 = helpers.getAllStatistics(list, candidates);
-    console.log('Candidates total counts', data1);
+    console.log("Candidates total counts", data1);
 
     // const data2 = helpers.getStatisticsByName(list, 'Domagoso, Isko Moreno', 'presidential');
     // console.log('cc-data2', data2);
@@ -39,7 +38,7 @@ const Ballot = () => {
   //!  Get the voter id
   const getUserId = async () => {
     try {
-      const q = query(collection(db, 'users'), where('uid', '==', user?.uid));
+      const q = query(collection(db, "users"), where("uid", "==", user?.uid));
       const doc = await getDocs(q);
       return doc.docs[0].id;
     } catch (err) {
@@ -61,27 +60,49 @@ const Ballot = () => {
   //!  Submits the voter's voted candidates
   const handleOnSubmit = async () => {
     const userId = await getUserId();
-    const docRef = doc(db, 'users', userId);
+    const docRef = doc(db, "users", userId);
     await updateDoc(docRef, { ...selectedCandidate }).then(() => {
       setSelectedCandidate(null);
-      navigate('/Thank-You')
+      navigate("/Thank-You");
     });
   };
 
   //!  Card container for ballot
   const Card = ({ title, children, ...props }) => {
     return (
-      <div className="card rounded border border-blue-500 my-10" {...props}>
-        <h1 className="text-white font-semibold text-xl tracking-wide bg-blue-500 px-3 py-2">
-          {title}
-        </h1>
-        <div className="flex flex-wrap p-1">{children}</div>
+      <div>
+        <div className="lg:mt-14 mt-5 mx-auto">
+          <div className="mx-auto mb-20">
+            <div className="">
+           
+              <div className="relative mx-auto lg:mb-0 mb-10">
+                <div className="">
+                  <div className="flex h-12 w-full rounded-t-lg border-b-2 border-slate-300 bg-green-800 shadow-lg">
+                    <small
+                      className="p-3 w-full text-center text-sm font-light tracking-tight text-white whitespace-nowrap  "
+                      {...props}
+                    >
+                      FOR
+                      <span className="ml-2 uppercase ">{title}</span>
+                    </small>
+                  </div>
+
+                  <div className="flex justify-between gap-10">
+                    {children}
+                    
+                   
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   };
 
   return (
-    <div className="container max-w-4xl px-4 mx-auto">
+    <div className="container px-4 mx-auto">
       {_.map(_.keys(candidates), (name, idx) => {
         const { title, list } = candidates[name];
         return (
@@ -93,10 +114,10 @@ const Ballot = () => {
                 name={name}
                 list={selectedCandidate?.candidates}
                 onSelectCandidate={handleOnSelectCandidate}
-                className="hover:bg-blue-50 rounded w-1/2 py-2 px-3"
+                className="hover:bg-blue-50 rounded w-1/2 "
               />
             ))}
-            { data.img }
+            {data.img}
           </Card>
         );
       })}
