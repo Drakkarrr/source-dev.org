@@ -15,14 +15,15 @@ const Candidate = ({ data, name, list, onSelectCandidate, ...props }) => {
       onClick={() => {
         onSelectCandidate({ name, data: { ...data, full_name: fullName } });
       }}
-      {...props}
-    >
-      <div className="rounded-lg flex bg-gradient-to-r from-green-900 to-green-500 border border-black mt-5">
-        <input type="radio" className="my-auto mr-10" />
-        <div className="bg-white top-2 left-6 h-16 w-16 overflow-hidden rounded-full border-2 border-white shadow-md">
+      {...props} 
+      className="w-full"
+    > 
+      <div className="relative rounded-lg w-full flex bg-gradient-to-r from-green-900 to-green-500 mt-5">
+        <input type="radio" className="my-auto mr-10 ml-5" />
+        <div className="absolute bg-white -top-3 border-4 border-gray-500 left-12 h-24 w-24 overflow-hidden rounded-full border-2 border-white shadow-md">
           <img className =" rounded-full object-cover" src="{data.img}" />
         </div>
-        <div className="text-center w-full my-auto ">{fullName} </div>
+        <div className="text-lg text-white font-bold whitespace-nowrap text-center w-full my-auto ml-20 ">{fullName} </div>
         <span class="p-5 text-white whitespace-nowrap">{data.course_year}</span>
       </div>
     </div>

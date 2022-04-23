@@ -77,7 +77,7 @@ const Ballot = () => {
            
               <div className="relative mx-auto lg:mb-0 mb-10">
                 <div className="">
-                  <div className="flex h-12 w-full rounded-t-lg border-b-2 border-slate-300 bg-green-800 shadow-lg">
+                  <div className="flex h-12 w-full border-b-2 border-slate-300 bg-green-800 shadow-lg">
                     <small
                       className="p-3 w-full text-center text-sm font-light tracking-tight text-white whitespace-nowrap  "
                       {...props}
@@ -87,7 +87,7 @@ const Ballot = () => {
                     </small>
                   </div>
 
-                  <div className="flex justify-between gap-10">
+                  <div className="lg:grid lg:grid-cols-2 lg:gap-10 lg:justify-evenly gap-10">
                     {children}
                     
                    

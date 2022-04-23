@@ -1,40 +1,166 @@
 {
-  "presidential": {
+  "president": {
     "title": "PRESIDENT",
     "list": [
       {
         "id": 1,
         "img": "{image/here}",
-        "first_name": "Ernie",
-        "last_name": "Abella",
-        "course_year": "BSIT-1"
+        "first_name": "Jessa Mae E.",
+        "last_name": "Dabon",
+        "course_year": "BSIT-2"
       },
       {
         "id": 2,
         "img": "require('./testImage.txt')",
-        "first_name": "Leody",
-        "last_name": "De Huzman",
-        "course_year": "BSIT-1"
+        "first_name": "Andres Edman G.",
+        "last_name": "Olario",
+        "course_year": "BSIT-2"
       }
     ]
   },
-  "vicepresidential": {
+  "vice_president": {
     "title": "VICE PRESIDENT",
     "list": [
       {
         "id": 1,
         "img": "{image/here}",
-        "first_name": "Lito",
-        "last_name": "Atienza",
+        "first_name": "Harlie Quin Marc C.",
+        "last_name": "Quipit",
         "course_year": "BSIT-1"
       },
       {
         "id": 2,
         "img": "{image/here}",
-        "first_name": "Walden",
-        "last_name": "Bello",
+        "first_name": "Lord Emmanuel C.",
+        "last_name": "Figueras",
         "course_year": "BSIT-1"
       }
+    ]
+  },
+  "secretary": {
+    "title": "secretary",
+    "list": [
+      {
+        "id": 1,
+        "img": "{image/here}",
+        "first_name": "Edyr Ryle G.",
+        "last_name": "Ilisan",
+        "course_year": "BSIT-1"
+      },
+      {
+        "id": 2,
+        "img": "{image/here}",
+        "first_name": "Kissy Cyrine",
+        "last_name": "Garciano",
+        "course_year": "BSIT-2"
+      }
+    ]
+  },
+
+  "infomedia": {
+    "title": "InfoMedia",
+    "list": [
+      {
+        "id": 1,
+        "img": "{image/here}",
+        "first_name": "Cathylyn Shaine P.",
+        "last_name": "Olandre",
+        "course_year": "BSIT-1"
+      },
+      {
+        "id": 2,
+        "img": "{image/here}",
+        "first_name": "Lucy Mae",
+        "last_name": "Tan",
+        "course_year": "BSIT-2"
+      }
+    ]
+  },
+
+  "budget_and_finance": {
+    "title": "Budget and Finance",
+    "list": [
+      {
+        "id": 1,
+        "img": "{image/here}",
+        "first_name": "Abby Kate V.",
+        "last_name": "Dela Pena",
+        "course_year": "BSIT-1"
+      },
+      {
+        "id": 2,
+        "img": "{image/here}",
+        "first_name": "Ruffa Mae L.",
+        "last_name": "Arañez",
+        "course_year": "BSIT-1"
+      }
+    ]
+  },
+
+  "material_preparation_and_services": {
+    "title": "Material Preparation and Services",
+    "list": [
+      {
+        "id": 1,
+        "img": "{image/here}",
+        "first_name": "John Piolo H.",
+        "last_name": "Mutia",
+        "course_year": "BSIT-1"
+      },
+      {
+        "id": 2,
+        "img": "{image/here}",
+        "first_name": "Keith M.",
+        "last_name": "Ostia",
+        "course_year": "BSIT-1"
+      }
+    ]
+  },
+
+  "logistics": {
+    "title": "Logistics",
+    "list": [
+      {
+        "id": 1,
+        "img": "{image/here}",
+        "first_name": "Mark Chezter M.",
+        "last_name": "Barcelo",
+        "course_year": "BSIT-1"
+      },
+      {
+        "id": 2,
+        "img": "{image/here}",
+        "first_name": "Aliza Nicole M.",
+        "last_name": "Gumapac",
+        "course_year": "BSIT-1"
+      }
+    ]
+  },
+
+  "public_relations_and_communications": {
+    "title": "Public Relations and Communications",
+    "list": [
+      {
+        "id": 1,
+        "img": "{image/here}",
+        "first_name": "Chris Heart E.",
+        "last_name": "Blanco",
+        "course_year": "BSIT-1"
+      },
+      {
+        "id": 2,
+        "img": "{image/here}",
+        "first_name": "Wena Mae V.",
+        "last_name": "Mabasas",
+        "course_year": "BSIT-1"
+      },
+      {
+              "id": 3,
+              "img": "{image/here}",
+              "first_name": "Ruel Dean",
+              "last_name": "Buray",
+              "course_year": "BSIT-1"
+            }
     ]
   }
 }

@@ -46,11 +46,11 @@ const Welcome = () => {
   
 
   return (
-    <div className="flex h-screen">
-      <div className="m-auto">
-        <div className='grid m-auto place-items-center shadow-2xl box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);'>
+    <div className="flex h-screen bg-gradient-to-t from-green-500 to-transparent">
+      <div className="m-auto w-screen mx-56">
+        <div className='bg-white place-items-center shadow-2xl box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);'>
           <div className=' h-96 w-160'>
-            <StyledContainer className='container m-auto border-gray-700 shadow-box h-90 w-160'>
+            <StyledContainer className='container m-auto border-gray-700 shadow-box'>
               <div className='w-80 m-auto relative grid'>
                 <StyledLogoContainer className="logo-container h-auto">
                   <img className='mt-6' src={logo} alt="source logo" />
