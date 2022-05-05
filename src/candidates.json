@@ -4,6 +4,7 @@
     "list": [
       {
         "id": 1,
+        "avatar": "../images/candidates/slogan.png",
         "first_name": "Mark Chezter",
         "last_name": "Barcelo"
       },

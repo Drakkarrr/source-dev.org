@@ -18,7 +18,10 @@ const Candidate = ({ data, name, list, onSelectCandidate, ...props }) => {
       {...props}
     >
       <StyledRadioButton className={isChecked} />
-      <StyledName>{data.img} {fullName}</StyledName>
+      <StyledName>
+        <img src={data.avatar} alt="avatar of candidates" />
+         {fullName}
+      </StyledName>
     </StyledCandidate>
   );
 };
