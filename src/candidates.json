@@ -1,0 +1,52 @@
+{
+  "presidential": {
+    "title": "PRESIDENT",
+    "list": [
+      {
+        "id": 1,
+        "first_name": "Mark Chezter",
+        "last_name": "Barcelo"
+      },
+      {
+        "id": 2,
+        "first_name": "Junrey",
+        "last_name": "Lañas"
+      },
+      {
+        "id": 3,
+        "first_name": "Jo Renlee",
+        "last_name": "Luna"
+      },
+      {
+        "id": 4,
+        "first_name": "Wena Mae",
+        "last_name": "Mabasa"
+      }
+    ]
+  },
+  "vicepresidential": {
+    "title": "VICE PRESIDENT",
+    "list": [
+      {
+        "id": 1,
+        "first_name": "John",
+        "last_name": "Doe"
+      },
+      {
+        "id": 2,
+        "first_name": "Robert",
+        "last_name": "Martin"
+      },
+      {
+        "id": 3,
+        "first_name": "Uncle",
+        "last_name": "Bob"
+      },
+      {
+        "id": 4,
+        "first_name": "Makabugto",
+        "last_name": "Alyas"
+      }
+    ]
+  }
+}

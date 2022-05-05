@@ -10,12 +10,13 @@ import Welcome from './components/Welcome';
 import PageBallot from './pages/PageBallot';
 import WelcomeBack  from './components/WelcomeBack';
 import PageResults from './pages/PageResults';
+import NotAuthorized from './components/NotAuthorized';
 
 
 const App = () => {
   const navigate = useNavigate();
 
-  //!  Protected routes: navigate user to login if not athenticated
+  //!  Protected routes: navigate user to login if not authenticated
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       navigate('/');
@@ -32,6 +33,8 @@ const App = () => {
         <Route path='/welcome' element={<Welcome />} />
         <Route path='/ballot' element={<PageBallot/>} />
         <Route path='/thank-you' element={<ThankYou/>} />
+        <Route path='/not-authorized' element={<NotAuthorized/>} />
+
 
         //!  Soon to be open protected routes
         <Route path='/welcome-back' element={<WelcomeBack/>} />
