@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import logo from "../assets/source-logo.png";
-import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
 //!  Firebase
@@ -13,7 +11,6 @@ const Welcome = () => {
   const [name, setName] = useState("");
   const navigate = useNavigate();
   const userName = name;
-
 
   //!  Fetch the data of logged in user
   const fetchUserName = async () => {
@@ -28,14 +25,12 @@ const Welcome = () => {
     }
   };
 
-
   useEffect(() => {
     if (loading) return fetchUserName();
     if (!user) {
       localStorage.removeItem("token");
       navigate("/");
     }
-   
 
     fetchUserName();
   }, [user, loading, navigate]);
@@ -47,51 +42,53 @@ const Welcome = () => {
 
   return (
     <div className="flex h-screen">
-      <div className="m-auto">
-        <div className="grid m-auto place-items-center shadow-2xl box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);">
-          <div className=" h-96 w-160">
-            <StyledContainer className="container m-auto border-gray-700 shadow-box h-90 w-160">
-              <div className="w-80 m-auto relative grid">
-                <StyledLogoContainer className="logo-container h-auto">
-                  <img className="mt-6" src={logo} alt="source logo" />
-                </StyledLogoContainer>
-              </div>
-              <div className="w-80 relative">
-                <h1 className="font-bold text-2xl">WELCOME {userName}!</h1>
-              </div>
+      <div className="lg:w-6/12 m-auto text-center lg:border-t-4 lg:border-0 border-4 border-green-900 lg:shadow-lg lg:p-10 py-10 px-2">
+        <div className="">
+          <div className="inline-flex mx-auto gap-5">
+            <img
+              src={require("../assets/lsu-logo.png")}
+              className="lg:h-20 h-16 lg:mb-3 mb-5"
+              alt="source logo"
+            />
 
-              <div className="w-80 relative">
-                <h2 className="font-bold w-9/12 mt-px text-base">
-                  La Salle University - OZC Student Organization Utilizing the
-                  Realm of Computer Eclecticism ELECTION for A.Y 2022 - 2023
-                  OFFICERS.
-                </h2>
-              </div>
-              <div className="w-80 relative">
-                <p className="font-semibold">
-                  Student(s) can only elect officers once. Do not close the page
-                  while still voting, you will be automatically redirected to
-                  logout and reset selected candidates. Choose one (1) candidate
-                  per position, Thank you!
-                </p>
-              </div>
-
-              <div className="buttons flex justify-between">
-                <button
-                  onClick={logout}
-                  className="g_id_signout main text-white px-4 py-2 rounded-md text-1xl font-bold hover:bg-purple-800 transition duration-300"
-                >
-                  LOGOUT
-                </button>
-                <button
-                  onClick={toBallot}
-                  className="main text-white px-4 py-2 rounded-md text-1xl font-bold hover:bg-blue-700 transition duration-300"
-                >
-                  GET STARTED
-                </button>
-              </div>
-            </StyledContainer>
+            <img
+              src={require("../assets/source-logo.png")}
+              className="lg:h-20 h-16 lg:mb-3 mb-5"
+              alt="source logo"
+            />
           </div>
+
+          <div className="lg:text-sm text-xs lg:text-green-700 text-green-800 lg:w-10/12 w-11/12 mx-auto">
+            Welcome to La Salle University - OZC <br />
+            Student Organization Utilizing the Realm of Computer Eclecticism
+            <br />
+            Election for A.Y 2022 - 2023 Officers.
+          </div>
+        </div>
+
+        <div className="lg:text-sm text-xs lg:text-black text-green-800 my-20 lg:w-10/12 w-11/12 mx-auto text-justify">
+          <div className="capitalize mb-5">Hello, {userName}!</div>
+          <div className="indent-10">
+            You can only elect officers at once. Do not close the page while
+            still voting, you will automatically be redirected to logout and
+            reset selected candidates. Choose only one (1) candidate per
+            position, Thank you!
+          </div>
+        </div>
+
+        <div className="">
+          <button
+            onClick={logout}
+            className="bg-blue-900 hover:bg-blue-700 border border-white text-white font-bold py-2 px-4 rounded mr-10 lg:text-sm text-xs"
+          >
+            LOGOUT
+          </button>
+          <button
+            onClick={toBallot}
+            className="lg:bg-green-800 bg-green-900 border border-white hover:bg-green-900 text-white font-bold py-2 px-4 rounded lg:text-sm text-xs"
+          >
+            GET STARTED
+          </button>
         </div>
       </div>
     </div>
@@ -99,20 +96,3 @@ const Welcome = () => {
 };
 
 export default Welcome;
-
-const StyledLogoContainer = styled.div`
-  width: auto;
-  display: grid;
-  place-items: center;
-  height: auto;
-  img {
-    object-fit: cover;
-    width: 101px;
-  }
-`;
-
-const StyledContainer = styled.div`
-  height: 100%;
-  text-align: center;
-  display: grid;
-`;
