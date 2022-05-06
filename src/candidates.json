@@ -6,15 +6,13 @@
         "id": 1,
         "profile": "../images/candidates/jessa.jpg",
         "student_name": "Jessa Mae E. Dabon",
-        "course_and_year": "BSIT - 2",
-        "position": "president"
+        "course_and_year": "BSIT - 2"
       },
       {
         "id": 2,
         "profile": "../images/candidates/andres.jpg",
         "student_name": "Andres Edman G. Olario",
-        "course_and_year": "BSIT - 2",
-        "position": "president"
+        "course_and_year": "BSIT - 2"
       }
     ]
   },
@@ -25,15 +23,13 @@
         "id": 1,
         "profile": "../images/candidates/harlie.jpg",
         "student_name": "Harlie Quin Marc C. Quipit",
-        "course_and_year": "BSIT-1",
-        "position": "vice president"
+        "course_and_year": "BSIT-1"
       },
       {
         "id": 2,
         "profile": "../images/candidates/emman.jpg",
         "student_name": "Lord Emmanuel C. Figueras",
-        "course_and_year": "BSIT-1",
-        "position": "vice president"
+        "course_and_year": "BSIT-1"
       }
     ]
   },
@@ -44,76 +40,67 @@
         "id": 1,
         "profile": "../images/candidates/ryle.jpg",
         "student_name": "Edyr Ryle G. Ilisan",
-        "course_and_year": "BSIT-1",
-        "position": "secretary"
+        "course_and_year": "BSIT-1"
       },
       {
         "id": 2,
         "profile": "../images/candidates/kissy.jpg",
         "student_name": "Kissy Cyrine Garciano",
-        "course_and_year": "BSIT-2",
-        "position": "secretary"
+        "course_and_year": "BSIT-2"
       }
     ]
   },
  
   "infomedia": {
-    "title": "information and media",
+    "title": "information & multimedia",
     "list": [
       {
         "id": 1,
         "profile": "../images/candidates/cathy.jpg",
         "student_name": "Cathylyn Shaine P. Olandre",
-        "last_name": "Olandre",
-        "course_and_year": "BSIT-1",
-        "position": "information and media"
+        "course_and_year": "BSIT-1"
       },
       {
         "id": 2,
         "profile": "../images/candidates/lucy.jpg",
         "student_name": "Lucy Mae Tan",
-        "course_and_year": "BSIT-2",
-        "position": "information and media"
+        "course_and_year": "BSIT-2"
       }
     ]
   },
  
   "budget_and_finance": {
-    "title": "budget and finance",
+    "title": "budget & finance",
     "list": [
       {
         "id": 1,
         "profile": "../images/candidates/abby.jpg",
         "student_name": "Abby Kate V. Dela Pena",
-        "course_and_year": "BSIT-1",
-        "position": "budget and finance"
+        "course_and_year": "BSIT-1"
       },
       {
         "id": 2,
         "profile": "../images/candidates/ruffa.jpg",
         "student_name": "Ruffa Mae L. Arañez",
-        "course_and_year": "BSIT-1",
-        "position": "budget and finance"
+        "course_and_year": "BSIT-1"
       }
     ]
   },
  
   "material_preparation_and_services": {
-    "title": "material preparation and services",
+    "title": "material preparation & services",
     "list": [
       {
         "id": 1,
         "profile": "../images/candidates/piolo.jpg",
         "student_name": "John Piolo H. Mutia",
-        "course_and_year": "BSIT-1",
-        "position": "material preparation and services"
+        "course_and_year": "BSIT-1"
       },
       {
         "id": 2,
         "profile": "../images/candidates/keith.jpg",
         "student_name": "Keith M. Ostia",
-        "course_and_year": "BSIT-1",
-        "position": "material preparation and services"
+        "course_and_year": "BSIT-1"
       }
     ]
   },
@@ -125,44 +112,38 @@
         "id": 1,
         "profile": "../images/candidates/mark.jpg",
         "student_name": "Mark Chezter M. Barcelo",
-        "course_and_year": "BSIT-1",
-        "position": "logistics"
+        "course_and_year": "BSIT-1"
       },
       {
         "id": 2,
         "profile": "../images/candidates/aliza.jpg",
         "student_name": "Aliza Nicole M. Gumapac",
-        "course_and_year": "BSIT-1",
-        "position": "logistics"
+        "course_and_year": "BSIT-1"
       }
     ]
   },
  
   "public_relations_and_communications": {
-    "title": "public relations and communications",
+    "title": "public relations & communications",
     "list": [
       {
         "id": 1,
         "profile": "../images/candidates/heart.jpg",
         "student_name": "Chris Heart E. Blanco",
-        "course_and_year": "BSIT-1",
-        "position": "public relations and communications"
+        "course_and_year": "BSIT-1"
       },
       {
         "id": 2,
         "profile": "../images/candidates/wena.jpg",
         "student_name": "Wena Mae V. Mabasas",
-        "course_and_year": "BSIT-1",
-        "position": "public relations and communications"
+        "course_and_year": "BSIT-1"
       },
       {
         "id": 3,
         "profile": "../images/candidates/ruel.jpg",
         "student_name": "Ruel Dean Buray",
-        "course_and_year": "BSIT-1",
-        "position": "public relations and communications"
+        "course_and_year": "BSIT-1"
       }
     ]
   }
- }
- 
+}

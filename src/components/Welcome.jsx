@@ -69,10 +69,8 @@ const Welcome = () => {
         <div className="lg:text-sm text-xs lg:text-black text-green-800 my-20 lg:w-10/12 w-11/12 mx-auto text-justify">
           <div className="capitalize mb-5">Hello, {userName}!</div>
           <div className="indent-10">
-            You can only elect officers at once. Do not close the page while
-            still voting, you will automatically be redirected to logout and
-            reset selected candidates. Choose only one (1) candidate per
-            position, Thank you!
+            You can only cast your votes once. After successfully submitting your votes, you will not be able to access the ballot page again. Please carefully select your prefered candidates. Choose only one (1) candidate per
+            position. You will be able to receive confirmation receipt for your submission. Thank you.
           </div>
         </div>
 

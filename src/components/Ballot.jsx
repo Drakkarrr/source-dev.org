@@ -71,7 +71,9 @@ const Ballot = () => {
   const Card = ({ title, children, ...props }) => {
     return (
       <div className="" {...props}>
-        <h1 className="">{title}</h1>
+        <h1 className="border-b-4 lg:mb-10 mb-7 pb-2 text-white text-center capitalize text-sm pt-3">
+          For SOURCE {title}
+        </h1>
         <div className="">{children}</div>
       </div>
     );
@@ -118,7 +120,20 @@ const Ballot = () => {
       {_.map(_.keys(candidates), (name, idx) => {
         const { title, list } = candidates[name];
         return (
-          <div key={idx} title={title} className="my-12 lg:grid lg:grid-cols-2 lg:gap-10 w-full">
+          <Card
+            key={idx}
+            title={title}
+            className="
+          
+          rounded-md
+      bg-gradient-to-r
+      from-green-900
+      to-green-500
+      bg-white
+      shadow-xl lg:pb-5 pb-2 mb-10
+        "
+          >
+            <div className="lg:grid lg:grid-cols-2">
             {_.map(list, (data, idx) => (
               <Candidate
                 key={idx}
@@ -126,11 +141,12 @@ const Ballot = () => {
                 name={name}
                 list={selectedCandidate?.candidates}
                 onSelectCandidate={handleOnSelectCandidate}
-                className="py-2 px-3"
+                className=""
               />
             ))}
-            {data.img}
-          </div>
+            </div>
+          
+          </Card>
         );
       })}
       <button
