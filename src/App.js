@@ -5,7 +5,7 @@ import './App.css';
 
 //!  Components
 import Login from './components/Login';
-import ThankYou from './components/ThankYou';
+import Verify from './components/Verify';
 import Welcome from './components/Welcome';
 import PageBallot from './pages/PageBallot';
 import WelcomeBack  from './components/WelcomeBack';
@@ -32,7 +32,7 @@ const App = () => {
         <Route exact path='/' element={<Login/> } />
         <Route path='/welcome' element={<Welcome />} />
         <Route path='/ballot' element={<PageBallot/>} />
-        <Route path='/thank-you' element={<ThankYou/>} />
+        <Route path='/verify' element={<Verify/>} />
         <Route path='/not-authorized' element={<NotAuthorized/>} />
 
 

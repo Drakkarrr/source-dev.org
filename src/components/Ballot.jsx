@@ -63,7 +63,7 @@ const Ballot = () => {
     const docRef = doc(db, "users", userId);
     await updateDoc(docRef, { ...selectedCandidate }).then(() => {
       setSelectedCandidate(null);
-      navigate("/Thank-You");
+      navigate("/verify");
     });
   };
 
@@ -154,7 +154,7 @@ const Ballot = () => {
         onClick={handleOnSubmit}
         disabled={!selectedCandidate}
       >
-        SUBMIT
+        PROCEED
       </button>
     </div>
   );

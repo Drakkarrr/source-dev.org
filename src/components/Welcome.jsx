@@ -69,8 +69,7 @@ const Welcome = () => {
         <div className="lg:text-sm text-xs lg:text-black text-green-800 my-20 lg:w-10/12 w-11/12 mx-auto text-justify">
           <div className="capitalize mb-5">Hello, {userName}!</div>
           <div className="indent-10">
-            You can only cast your votes once. After successfully submitting your votes, you will not be able to access the ballot page again. Please carefully select your prefered candidates. Choose only one (1) candidate per
-            position. You will be able to receive confirmation receipt for your submission. Thank you.
+            You can only cast your votes once you submit and logout. Please carefully select your prefered candidates. You will be able to receive confirmation receipt for your submission. Thank you.
           </div>
         </div>
 
@@ -85,7 +84,7 @@ const Welcome = () => {
             onClick={toBallot}
             className="lg:bg-green-800 bg-green-900 border border-white hover:bg-green-900 text-white font-bold py-2 px-4 rounded lg:text-sm text-xs"
           >
-            GET STARTED
+            GO TO BALLOT PAGE
           </button>
         </div>
       </div>
