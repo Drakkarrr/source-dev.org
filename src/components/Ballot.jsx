@@ -11,7 +11,6 @@ import candidates from "../candidates.json";
 
 //! Helpers
 import * as helpers from "../helpers/index";
-import { data } from "autoprefixer";
 
 const Ballot = () => {
   const [user] = useAuthState(auth);
@@ -46,17 +45,6 @@ const Ballot = () => {
     }
   };
 
-  //!  Handle the voter's selected candidates
-  const handleOnSelectCandidate = async (obj) => {
-    setSelectedCandidate({
-      ...selectedCandidate,
-      candidates: {
-        ...selectedCandidate?.candidates,
-        [obj.name]: obj.data,
-      },
-    });
-  };
-
   //!  Submits the voter's voted candidates
   const handleOnSubmit = async () => {
     const userId = await getUserId();
@@ -67,10 +55,22 @@ const Ballot = () => {
     });
   };
 
+    //!  Handle the voter's selected candidates
+    const handleOnSelectCandidate = async (obj) => {
+      setSelectedCandidate({
+        ...selectedCandidate,
+        candidates: {
+          ...selectedCandidate?.candidates,
+          [obj.name]: obj.data,
+        },
+      });
+    };
+
+
   //!  Card container for ballot
   const Card = ({ title, children, ...props }) => {
     return (
-      <div className="" {...props}>
+      <div className="position-container" {...props}>
         <h1 className="border-b-4 lg:mb-10 mb-7 pb-2 text-white text-center capitalize text-sm pt-3">
           For SOURCE {title}
         </h1>
@@ -141,7 +141,6 @@ const Ballot = () => {
                 name={name}
                 list={selectedCandidate?.candidates}
                 onSelectCandidate={handleOnSelectCandidate}
-                className=""
               />
             ))}
             </div>
