@@ -6,7 +6,7 @@ import Presidents from '../components/results/Presidents';
 
 const PageResults = () => {
     return (
-        <div class="min-w-screen min-h-screen rounded-2xl px-5 py-5 rounded-2xl bg-gray-100">
+        <div class="min-w-screen min-h-screen px-5 py-5 rounded-2xl bg-gray-100">
             <div class="w-full h-screen rounded-2xl shadow-lg  mx-auto bg-white px-5  text-gray-600 mb-10">
                 <div className='w-2/4 h-28 mx-auto flex justify-around'>
                     <img src={logo} alt="source logo" />

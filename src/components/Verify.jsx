@@ -22,14 +22,13 @@ const ThankYou = () => {
 
       setName(data.name);
     } catch (err) {
-      console.error(err);
+      // console.error(err);
     }
   };
 
   const backToBallot = async () => {
-  
     navigate("/ballot");
-};
+  };
 
   useEffect(() => {
     if (loading) return;
@@ -41,7 +40,7 @@ const ThankYou = () => {
     fetchUserName();
   }, [error, loading, navigate, user]);
   return (
-<>
+    <>
       <div
         className="mt-10 text-center lg:w-8/12 w-11/12 mx-auto my-30"
       >
@@ -69,22 +68,22 @@ const ThankYou = () => {
         </div>
 
         <div className="pt-20 text-sm font-normal h-44 my-auto">
-        For confirmation receipt, please check your LSU email after Logging Out. Thank you, {userName}!
+          For confirmation receipt, please check your LSU email after Logging Out. Thank you, {userName}!
         </div>
         <div className="lg:flex">
           <div className="w-fit mx-auto">
-          <button
-          onClick={backToBallot}
-          className="bg-blue-800 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-blue-700 transition duration-300 ml-5 mb-5"
-        >
-          Re-Select
-        </button>
-        <button
-          onClick={logout}
-          className="bg-green-800 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-green-700 transition duration-300 ml-5"
-        >
-          Submit and Logout 
-        </button>
+            <button
+              onClick={backToBallot}
+              className="bg-blue-800 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-blue-700 transition duration-300 ml-5 mb-5"
+            >
+              Re-Select
+            </button>
+            <button
+              onClick={logout}
+              className="bg-green-800 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-green-700 transition duration-300 ml-5"
+            >
+              Submit and Logout
+            </button>
           </div>
         </div>
       </div>

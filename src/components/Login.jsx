@@ -39,14 +39,14 @@ const Login = () => {
     if (user && localStorage.getItem("token")) {
       const filteredUsers = authenticatedEmails.find((arr) => arr === user.email);
       if (filteredUsers) {
-        console.log("You are authenticated");
+        // console.log("You are authenticated");
         navigate('/welcome');
       }
       else {
         navigate('/not-authorized')
-        console.log('You are not part of the org!!');
+        // console.log('You are not part of the org!!');
       }
-      console.log(user);
+      // console.log(user);
     }
     else {
       navigate('/');

@@ -15,7 +15,7 @@ import * as helpers from "../helpers/index";
 const Ballot = () => {
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
-  const [selectedCandidate, setSelectedCandidate] = useState(null);
+  const [selectedCandidate, setSelectedCandidate] = useState(0);
 
   //!  Storing query candidate stats count
   useEffect(async () => {
@@ -28,7 +28,7 @@ const Ballot = () => {
 
     //!  Toltal candidates counts
     const data1 = helpers.getAllStatistics(list, candidates);
-    console.log("Candidates total counts", data1);
+    // console.log("Candidates total counts", data1);
 
     // const data2 = helpers.getStatisticsByName(list, 'Domagoso, Isko Moreno', 'presidential');
     // console.log('cc-data2', data2);
@@ -47,24 +47,26 @@ const Ballot = () => {
 
   //!  Submits the voter's voted candidates
   const handleOnSubmit = async () => {
-    const userId = await getUserId();
-    const docRef = doc(db, "users", userId);
-    await updateDoc(docRef, { ...selectedCandidate }).then(() => {
-      setSelectedCandidate(null);
-      navigate("/verify");
-    });
+    if (selectedCandidate.candidates.president && selectedCandidate.candidates.vice_president && selectedCandidate.candidates.secretary && selectedCandidate.candidates.budget_and_finance && selectedCandidate.candidates.logistics && selectedCandidate.candidates.infomedia && selectedCandidate.candidates.material_preparation_and_services && selectedCandidate.candidates.public_relations_and_communications) {
+      const userId = await getUserId();
+      const docRef = doc(db, "users", userId);
+      await updateDoc(docRef, { ...selectedCandidate }).then(() => {
+        setSelectedCandidate(null);
+      });
+      navigate('/verify')
+    }
   };
 
-    //!  Handle the voter's selected candidates
-    const handleOnSelectCandidate = async (obj) => {
-      setSelectedCandidate({
-        ...selectedCandidate,
-        candidates: {
-          ...selectedCandidate?.candidates,
-          [obj.name]: obj.data,
-        },
-      });
-    };
+  //!  Handle the voter's selected candidates
+  const handleOnSelectCandidate = async (obj) => {
+    setSelectedCandidate({
+      ...selectedCandidate,
+      candidates: {
+        ...selectedCandidate?.candidates,
+        [obj.name]: obj.data,
+      },
+    });
+  };
 
 
   //!  Card container for ballot
@@ -97,7 +99,7 @@ const Ballot = () => {
         </div>
       </div>
       <h1
-        class="
+        className="
           text-center
           mb-14
           text-sm
@@ -114,7 +116,7 @@ const Ballot = () => {
         <br />
         Election for Officers A.Y. 2022-2023
         <br />
-        <span class="">List of All Candidates</span>
+        <span className="candidates-list">List of All Candidates</span>
       </h1>
 
       {_.map(_.keys(candidates), (name, idx) => {
@@ -134,17 +136,17 @@ const Ballot = () => {
         "
           >
             <div className="lg:grid lg:grid-cols-2">
-            {_.map(list, (data, idx) => (
-              <Candidate
-                key={idx}
-                data={data}
-                name={name}
-                list={selectedCandidate?.candidates}
-                onSelectCandidate={handleOnSelectCandidate}
-              />
-            ))}
+              {_.map(list, (data, idx) => (
+                <Candidate
+                  key={idx}
+                  data={data}
+                  name={name}
+                  list={selectedCandidate?.candidates}
+                  onSelectCandidate={handleOnSelectCandidate}
+                />
+              ))}
             </div>
-          
+
           </Card>
         );
       })}
