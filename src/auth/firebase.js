@@ -37,19 +37,8 @@ const signInWithGoogle = async () => {
     setCookie("userCookie")
     
     const q = query(collection(db, "users"), where("uid", "==", user.uid));
-    const docs = await getDocs(q);
-    
-    // const filteredUsers = authenticatedEmails.find(arr => arr === user.email);
+    const docs = await getDocs(q); 
 
-    // if(filteredUsers) {
-    //   console.log("You are authenticated");
-    // }
-    // else {
-    //    alert('You are not part of the org');
-    //    logout()
-    // }
-    
-    
     if (docs.docs.length === 0) {
       await addDoc(collection(db, "users"), {
         uid: user.uid,
