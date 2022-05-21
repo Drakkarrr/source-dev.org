@@ -30,8 +30,6 @@ const Ballot = () => {
     const data1 = helpers.getAllStatistics(list, candidates);
     // console.log("Candidates total counts", data1);
 
-    // const data2 = helpers.getStatisticsByName(list, 'Domagoso, Isko Moreno', 'presidential');
-    // console.log('cc-data2', data2);
   }, []);
 
   //!  Get the voter id
@@ -50,9 +48,24 @@ const Ballot = () => {
     if (selectedCandidate.candidates.president && selectedCandidate.candidates.vice_president && selectedCandidate.candidates.secretary && selectedCandidate.candidates.budget_and_finance && selectedCandidate.candidates.logistics && selectedCandidate.candidates.infomedia && selectedCandidate.candidates.material_preparation_and_services && selectedCandidate.candidates.public_relations_and_communications) {
       const userId = await getUserId();
       const docRef = doc(db, "users", userId);
+
+      const list = [ 
+        selectedCandidate.candidates.president.full_name, 
+        selectedCandidate.candidates.vice_president.full_name,
+        selectedCandidate.candidates.secretary.full_name,
+        selectedCandidate.candidates.budget_and_finance.full_name,
+        selectedCandidate.candidates.logistics.full_name,
+        selectedCandidate.candidates.infomedia.full_name,
+        selectedCandidate.candidates.material_preparation_and_services.full_name,
+        selectedCandidate.candidates.public_relations_and_communications.full_name
+      ]
+      
       await updateDoc(docRef, { ...selectedCandidate }).then(() => {
         setSelectedCandidate(null);
       });
+
+    console.log(list);
+
       navigate('/verify')
     }
   };

@@ -11,7 +11,6 @@ const ThankYou = () => {
   const [user, loading, error] = useAuthState(auth);
   const [name, setName] = useState("");
   const navigate = useNavigate();
-
   const userName = name;
 
   const fetchUserName = async () => {
