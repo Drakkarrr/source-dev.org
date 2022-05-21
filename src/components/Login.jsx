@@ -37,7 +37,7 @@ const Login = () => {
   //!  Adds user token to localStorage upon signin
   useEffect(() => {
     if (user && localStorage.getItem("token")) {
-      const filteredUsers = authenticatedEmails.find((arr) => arr === user.email);
+      const filteredUsers = authenticatedEmails.find(arr => arr === user.email);
       if (filteredUsers) {
         navigate('/welcome');
       }

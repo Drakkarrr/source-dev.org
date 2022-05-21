@@ -29,7 +29,6 @@ const Ballot = () => {
     //!  Toltal candidates counts
     const data1 = helpers.getAllStatistics(list, candidates);
     // console.log("Candidates total counts", data1);
-
   }, []);
 
   //!  Get the voter id
@@ -45,32 +44,53 @@ const Ballot = () => {
 
   //!  Submits the voter's voted candidates
   const handleOnSubmit = async () => {
-    if (selectedCandidate.candidates.president && selectedCandidate.candidates.vice_president && selectedCandidate.candidates.secretary && selectedCandidate.candidates.budget_and_finance && selectedCandidate.candidates.logistics && selectedCandidate.candidates.infomedia && selectedCandidate.candidates.material_preparation_and_services && selectedCandidate.candidates.public_relations_and_communications) {
+    if (
+      selectedCandidate.candidates.president &&
+      selectedCandidate.candidates.vice_president &&
+      selectedCandidate.candidates.secretary &&
+      selectedCandidate.candidates.budget_and_finance &&
+      selectedCandidate.candidates.logistics &&
+      selectedCandidate.candidates.infomedia &&
+      selectedCandidate.candidates.material_preparation_and_services &&
+      selectedCandidate.candidates.public_relations_and_communications
+    ) {
       const userId = await getUserId();
       const docRef = doc(db, "users", userId);
 
-      const list = [ 
-        selectedCandidate.candidates.president.full_name, 
-        selectedCandidate.candidates.vice_president.full_name,
-        selectedCandidate.candidates.secretary.full_name,
-        selectedCandidate.candidates.budget_and_finance.full_name,
-        selectedCandidate.candidates.logistics.full_name,
-        selectedCandidate.candidates.infomedia.full_name,
-        selectedCandidate.candidates.material_preparation_and_services.full_name,
-        selectedCandidate.candidates.public_relations_and_communications.full_name
-      ]
-      
       await updateDoc(docRef, { ...selectedCandidate }).then(() => {
         setSelectedCandidate(null);
       });
 
-    console.log(list);
+      // const messageToMail = `Hello ${user.displayName},`;
+      // const list = [
+      //   selectedCandidate.candidates.president.full_name,
+      //   selectedCandidate.candidates.vice_president.full_name,
+      //   selectedCandidate.candidates.secretary.full_name,
+      //   selectedCandidate.candidates.budget_and_finance.full_name,
+      //   selectedCandidate.candidates.logistics.full_name,
+      //   selectedCandidate.candidates.infomedia.full_name,
+      //   selectedCandidate.candidates.material_preparation_and_services.full_name,
+      //   selectedCandidate.candidates.public_relations_and_communications.full_name
+      // ]
 
-      navigate('/verify')
+      // console.log(`${messageToMail} the candidates you voted are the following: ${list}`);
+
+      // const sendEmail = () => {
+      //   Email.send({
+      //     SecureToken: "8ab876fa-2df8-452c-a848-78d53a48b532",
+      //     To: user.email,
+      //     From: "junrey.lanas@lsu.edu.ph",
+      //     Subject: "Hello subject!",
+      //     Body: "Hello testmail!",
+      //   }).then((message) => alert("mail sent!", message));
+      //   sendEmail();
+      // };
+
+      navigate("/verify");
     }
   };
 
-  //!  Handle the voter's selected candidates
+  //!  Handle the voter's selected candidates bv
   const handleOnSelectCandidate = async (obj) => {
     setSelectedCandidate({
       ...selectedCandidate,
@@ -80,7 +100,6 @@ const Ballot = () => {
       },
     });
   };
-
 
   //!  Card container for ballot
   const Card = ({ title, children, ...props }) => {
@@ -159,7 +178,6 @@ const Ballot = () => {
                 />
               ))}
             </div>
-
           </Card>
         );
       })}
