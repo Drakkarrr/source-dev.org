@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
-import slogan from '../assets/slogan.png';
-import styled from 'styled-components';
+import slogan from "../assets/slogan.png";
+import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
 //!  Firebase
-import { auth, signInWithGoogle } from '../auth/firebase';
-import { useAuthState } from 'react-firebase-hooks/auth';
-
+import { auth, signInWithGoogle } from "../auth/firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const Login = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -30,43 +29,50 @@ const Login = () => {
     "johnpiolo.mutia@lsu.edu.ph",
     "keith.ostia@lsu.edu.ph",
     "mark.barcelo@lsu.edu.ph",
-    "alizanicole.gumapac@lsu.edu.ph"
+    "alizanicole.gumapac@lsu.edu.ph",
   ];
-
 
   //!  Adds user token to localStorage upon signin
   useEffect(() => {
     if (user && localStorage.getItem("token")) {
-      const filteredUsers = authenticatedEmails.find(arr => arr === user.email);
+      const filteredUsers = authenticatedEmails.find(
+        (arr) => arr === user.email
+      );
       if (filteredUsers) {
-        navigate('/welcome');
-      }
-      else {
-        navigate('/')
-        alert('You are not part of the org!')
+        navigate("/welcome");
+      } else {
+        navigate("/");
+        alert("You are not part of the org!");
       }
       // console.log(user);
+    } else {
+      navigate("/");
     }
-    else {
-      navigate('/');
-    }
-
   }, [user, loading, error, navigate]);
-
-
 
   return (
     <div className="flex h-screen">
       <div className="lg:m-auto my-10 mx-5">
-        <div className='lg:shadow-2xl lg:box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);'>
-          <div className='lg:flex'>
-            <div className='lg:w-80'>
-              <img className="lg:w-80 shadow-box" src={slogan} alt="slogan logo" />
+        <div className="lg:shadow-2xl lg:box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);">
+          <div className="lg:flex">
+            <div className="lg:w-80">
+              <img
+                className="lg:w-80 shadow-box"
+                src={slogan}
+                alt="slogan logo"
+              />
             </div>
-            <div className='lg:w-80 lg:relative'>
-              <div className='lg:absolute lg:top-1/2 left-1/2 lg:transform lg:-translate-x-1/2 lg:-translate-y-1/2 lg:pt-0 pt-10'>
-                <StyledButton onClick={signInWithGoogle} className="mx-auto block">
-                  <img className="lg:h-10 h-14 lg:shadow-box" src="/btn_google_signin_dark_pressed_web@2x.png" alt="signin" />
+            <div className="lg:w-80 lg:relative">
+              <div className="lg:absolute lg:top-1/2 left-1/2 lg:transform lg:-translate-x-1/2 lg:-translate-y-1/2 lg:pt-0 pt-10">
+                <StyledButton
+                  onClick={signInWithGoogle}
+                  className="mx-auto block"
+                >
+                  <img
+                    className="lg:h-10 h-14 lg:shadow-box"
+                    src="/btn_google_signin_dark_pressed_web@2x.png"
+                    alt="signin"
+                  />
                 </StyledButton>
               </div>
             </div>
@@ -74,12 +80,12 @@ const Login = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Login;
 
 const StyledButton = styled.button`
   transition: 0.15s;
   cursor: pointer;
-`
+`;

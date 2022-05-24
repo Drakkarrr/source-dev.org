@@ -61,19 +61,19 @@ const Ballot = () => {
         setSelectedCandidate(null);
       });
 
-      // const messageToMail = `Hello ${user.displayName},`;
-      // const list = [
-      //   selectedCandidate.candidates.president.full_name,
-      //   selectedCandidate.candidates.vice_president.full_name,
-      //   selectedCandidate.candidates.secretary.full_name,
-      //   selectedCandidate.candidates.budget_and_finance.full_name,
-      //   selectedCandidate.candidates.logistics.full_name,
-      //   selectedCandidate.candidates.infomedia.full_name,
-      //   selectedCandidate.candidates.material_preparation_and_services.full_name,
-      //   selectedCandidate.candidates.public_relations_and_communications.full_name
-      // ]
+      const messageToMail = `Hello ${user.displayName},`;
+      const listVoted = [
+        selectedCandidate.candidates.president.full_name,
+        selectedCandidate.candidates.vice_president.full_name,
+        selectedCandidate.candidates.secretary.full_name,
+        selectedCandidate.candidates.budget_and_finance.full_name,
+        selectedCandidate.candidates.logistics.full_name,
+        selectedCandidate.candidates.infomedia.full_name,
+        selectedCandidate.candidates.material_preparation_and_services.full_name,
+        selectedCandidate.candidates.public_relations_and_communications.full_name
+      ]
 
-      // console.log(`${messageToMail} the candidates you voted are the following: ${list}`);
+      console.log(`${messageToMail} the candidates you voted are the following: ${listVoted}`);
 
       // const sendEmail = () => {
       //   Email.send({
