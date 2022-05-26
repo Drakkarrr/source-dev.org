@@ -75,17 +75,6 @@ const Ballot = () => {
 
       console.log(`${messageToMail} the candidates you voted are the following: ${listVoted}`);
 
-      // const sendEmail = () => {
-      //   Email.send({
-      //     SecureToken: "8ab876fa-2df8-452c-a848-78d53a48b532",
-      //     To: user.email,
-      //     From: "junrey.lanas@lsu.edu.ph",
-      //     Subject: "Hello subject!",
-      //     Body: "Hello testmail!",
-      //   }).then((message) => alert("mail sent!", message));
-      //   sendEmail();
-      // };
-
       navigate("/verify");
     }
   };

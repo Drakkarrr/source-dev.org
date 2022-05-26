@@ -3,6 +3,7 @@ import { GoogleAuthProvider, getAuth, signInWithPopup, signOut } from "firebase/
 import { getFirestore, query, getDocs, collection, where, addDoc } from "firebase/firestore";
 import { setCookie, clearCookies } from "../helpers/cookie";
 
+
 const firebaseConfig = {
   apiKey: "AIzaSyB1BuN_Ce_5cgKDmILr__F9dFEQA48xJNw",
   authDomain: "sourcedevorg-ec468.firebaseapp.com",
@@ -50,6 +51,7 @@ const signInWithGoogle = async () => {
     console.error(err);
   }
 };
+
 
 
 //!  Logout handler
