@@ -5,8 +5,12 @@ import { useNavigate } from "react-router-dom";
 import Voted from "./Voted";
 
 //!  Firebase
-import { auth, signInWithGoogle } from "../auth/firebase";
+import { auth, signInWithGoogle} from "../auth/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
+
+
+
+
 
 const Login = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -37,13 +41,23 @@ const Login = () => {
   // check if user existed in firebase users list
   // set isVoted to true ( isVoted(true) )
 
+  // const uidExists = auth().getUser(uid).then(() => true).catch(() => false)
+  
+  
+  
   //!  Adds user token to localStorage upon signin
   useEffect(() => {
+
+   
+
+
+
     if (user && localStorage.getItem("token")) {
       const filteredUsers = authenticatedEmails.find(
         (arr) => arr === user.email
       );
       if (filteredUsers) {
+        setIsVoted(true)
         navigate("/welcome");
       } else {
         navigate("/");

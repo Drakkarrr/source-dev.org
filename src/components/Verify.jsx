@@ -25,6 +25,7 @@ const ThankYou = () => {
     }
   };
 
+
   const backToBallot = async () => {
     navigate("/ballot");
   };

@@ -45,8 +45,12 @@ const signInWithGoogle = async () => {
         name: user.displayName,
         authProvider: "google",
         email: user.email,
+        isVoted: false
       });
     }
+    const uidExists = auth().getUser(user.uid).then(() => true).catch(() => false)
+    console.log(uidExists);
+    
   } catch (err) {
     console.error(err);
   }
