@@ -48,8 +48,6 @@ const signInWithGoogle = async () => {
         isVoted: false
       });
     }
-    const uidExists = auth().getUser(user.uid).then(() => true).catch(() => false)
-    console.log(uidExists);
     
   } catch (err) {
     console.error(err);
