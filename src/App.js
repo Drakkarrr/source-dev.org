@@ -15,18 +15,25 @@ import Voted from './components/Voted';
 
 
 const App = () => {
-  const [isVoted, setIsVoted] = useState(false);
   const navigate = useNavigate();
+  const [isVoted, setIsVoted] = useState(false);
 
+  useEffect(() => {
+    const timer = setTimeout(() => setIsVoted(true), 10000);
+    
+    if (timer === 10) {
+      setIsVoted(true)
+      console.log(timer);
+    }
+
+  }, [])
+  
   //!  Protected routes: navigate user to login if not authenticated
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       navigate('/');
-      console.log('is voted:', isVoted);  
     } else {
-      setIsVoted(true)
       navigate('/welcome');
-      console.log('is voted:', isVoted);
     }
   }, [])
 
@@ -34,10 +41,10 @@ const App = () => {
   return (
     <>
       <Routes>
-        <Route exact path='/' element={isVoted ? <Voted /> : <Login />} />
-        <Route path='/welcome' setIsVoted={true} element={<Welcome />} />
+        <Route exact path='/' element={ isVoted ? <Voted/> : <Login />} />
+        <Route path='/welcome'  element={<Welcome />} />
         <Route path='/ballot' element={<PageBallot />} />
-        <Route path='/verify' setIsVoted={true} element={<Verify />} />
+        <Route path='/verify'  element={<Verify />} />
         <Route path='/not-authorized' element={<NotAuthorized />} />
 
         //!  Soon to be open protected routes

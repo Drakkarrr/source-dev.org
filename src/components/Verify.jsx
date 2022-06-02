@@ -41,7 +41,7 @@ const ThankYou = () => {
   }, [error, loading, navigate, user]);
   return (
       <div className="mt-10 text-center lg:w-8/12 w-11/12 mx-auto my-30">
-        <div className="">
+        <div>
           <div className="inline-flex mx-auto gap-5">
             <img
               src={require("../assets/lsu-logo.png")}
