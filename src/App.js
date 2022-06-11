@@ -19,7 +19,7 @@ const App = () => {
   const [isVoted, setIsVoted] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsVoted(true), 10000);
+    const timer = setTimeout(() => setIsVoted(true), 20000);
     
     if (timer === 10) {
       setIsVoted(true)

@@ -16,9 +16,9 @@ const Voted = () => {
                   alt="slogan logo"
                 />
               </div>
-              <div className="bg-gradient-to-r
+              {/* <div className="bg-gradient-to-r
           from-green-400
-          to-green-600 px-2 py-2 font-bold grid place-items-center h-100 text-white text-bold">VOTE SUBMITTED, THANKS FOR VOTING!</div>
+          to-green-600 px-2 py-2 font-bold grid place-items-center h-100 text-white text-bold">VOTE SUBMITTED, THANKS FOR VOTING!</div> */}
             </div>
           </div>
         </div>
