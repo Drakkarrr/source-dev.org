@@ -56,15 +56,6 @@ const Login = () => {
     }
   }, [user, loading, error, navigate]);
 
-  // useEffect(() => {
-  //   const timer = setTimeout(() => setIsVoted(true), 10000);
-    
-  //   if (timer === 10) {
-  //     setIsVoted(true)
-  //     console.log(timer);
-  //   }
-
-  // }, [])
 
   return (
     <div className="flex h-screen">

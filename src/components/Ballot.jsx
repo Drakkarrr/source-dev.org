@@ -74,7 +74,6 @@ const Ballot = () => {
       ]
 
       console.log(`${messageToMail} the candidates you voted are the following: ${listVoted}`);
-
       navigate("/verify");
     }
   };

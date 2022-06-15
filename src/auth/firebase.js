@@ -34,6 +34,7 @@ const signInWithGoogle = async () => {
     const res = await signInWithPopup(auth, provider)
     const user = res.user;
     localStorage.setItem("token", res.user);
+    window.location.reload();
     setCookie("userCookie")
     
     const q = query(collection(db, "users"), where("uid", "==", user.uid));
