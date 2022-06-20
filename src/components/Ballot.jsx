@@ -17,6 +17,7 @@ const Ballot = () => {
   const navigate = useNavigate();
   const [selectedCandidate, setSelectedCandidate] = useState(0);
 
+
   //!  Storing query candidate stats count
   useEffect(async () => {
     const q = query(collection(db, "users"));
@@ -73,10 +74,27 @@ const Ballot = () => {
         selectedCandidate.candidates.public_relations_and_communications.full_name
       ]
 
-      console.log(`${messageToMail} the candidates you voted are the following: ${listVoted}`);
-      navigate("/verify");
+      const message = `${messageToMail} the candidates you voted are the following:\nPresident ${listVoted[0]},\n VP: ${listVoted[1]}`;
+
+      const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          subject: 'SOURCE ELECTION RECEIPT',
+          message: message,
+          to: user.email,
+          to_name: user.displayName,
+          from_name: 'LSU Source Election'
+        })
+      };
+
+      fetch('https://api.earlp.ru/mail/?key=pqF617BYV3p0&secret=900ab768bde76da7a36dd85606f4b5a32384b241%3Abea491c69c4deaed', requestOptions)
+        .then(response => console.log(response))
+        .then(() => navigate('/verify'));
     }
   };
+
+
 
   //!  Handle the voter's selected candidates bv
   const handleOnSelectCandidate = async (obj) => {
