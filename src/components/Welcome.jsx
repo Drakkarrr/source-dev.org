@@ -43,7 +43,7 @@ const Welcome = () => {
 
   return (
     <div className="flex h-screen">
-      <div className="lg:w-6/12 m-auto text-center lg:border-t-4 lg:border-0 border-4 border-green-900 lg:shadow-lg lg:p-10 py-10 px-2">
+      <div className="lg:w-5/12 m-auto text-center lg:border-t-4 lg:border-0 border-4 border-green-900 lg:shadow-lg lg:p-10 py-10 px-2">
         <div className="">
           <div className="inline-flex mx-auto gap-5">
             <img
@@ -59,7 +59,7 @@ const Welcome = () => {
             />
           </div>
 
-          <div className="lg:text-sm text-xs lg:text-green-700 text-green-800 lg:w-10/12 w-11/12 mx-auto">
+          <div className="lg:text-sm text-xs lg:text-green-700 text-green-800 w-11/12 mx-auto">
             Welcome to La Salle University - OZC <br />
             Student Organization Utilizing the Realm of Computer Eclecticism
             <br />
@@ -67,7 +67,7 @@ const Welcome = () => {
           </div>
         </div>
 
-        <div className="lg:text-sm text-xs lg:text-black text-green-800 my-20 lg:w-10/12 w-11/12 mx-auto text-justify">
+        <div className="lg:text-sm text-xs lg:text-black text-green-800 my-20 w-11/12 mx-auto text-justify">
           <div className="capitalize mb-5">Hello, {userName}!</div>
           <div className="indent-10">
             You can only cast your votes once you submit and logout. Please carefully select your prefered candidates. You will be able to receive confirmation receipt for your submission. Thank you.
@@ -77,7 +77,7 @@ const Welcome = () => {
         <div className="">
           <button
             onClick={logout}
-            className="bg-blue-900 hover:bg-blue-700 border border-white text-white font-bold py-2 px-4 rounded mr-10 lg:text-sm text-xs"
+            className="bg-blue-900 hover:bg-blue-700 border border-white text-white font-bold py-2 px-4 rounded mx-10 lg:text-sm text-xs"
           >
             LOGOUT
           </button>

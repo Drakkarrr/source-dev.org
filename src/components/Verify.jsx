@@ -39,7 +39,7 @@ const ThankYou = () => {
   }, [error, loading, navigate, user]);
   return (
     <div className="flex h-screen">
-      <div className="lg:w-6/12 m-auto text-center lg:border-t-4 lg:border-0 border-4 border-green-900 lg:shadow-lg lg:p-10 py-10 px-2">
+      <div className="lg:w-4/12 m-auto text-center lg:border-t-4 lg:border-0 border-4 border-green-900 lg:shadow-lg lg:p-10 py-10 px-2">
         <div className="">
           <div className="inline-flex mx-auto gap-5">
             <img
@@ -55,7 +55,7 @@ const ThankYou = () => {
             />
           </div>
 
-          <div className="lg:text-sm text-xs lg:text-green-700 text-green-800 lg:w-10/12 w-11/12 mx-auto">
+          <div className="lg:text-sm text-xs lg:text-green-700 text-green-800 mx-auto">
             La Salle University - OZC <br />
             Student Organization Utilizing the Realm of Computer Eclecticism
             <br />
@@ -63,7 +63,7 @@ const ThankYou = () => {
           </div>
         </div>
 
-        <div className="lg:text-sm text-xs lg:text-black text-green-800 my-20 lg:w-10/12 w-11/12 mx-auto text-justify">
+        <div className="lg:text-sm text-xs lg:text-black text-green-800 my-20 w-11/12 mx-auto text-justify">
           <div>
             For confirmation receipt, please check your LSU email after Logging
             Out. Thank you, {userName}!
@@ -72,15 +72,15 @@ const ThankYou = () => {
 
         <div className="lg:flex">
           <div className="w-fit mx-auto">
-            <button
+            {/* <button
               onClick={backToBallot}
-              className="bg-blue-800 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-blue-700 transition duration-300 ml-5 mb-5"
+              className="bg-blue-800 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-blue-700 transition duration-300 mx-5 mb-5"
             >
               Re-Select
-            </button>
+            </button> */}
             <button
               onClick={logout}
-              className="bg-green-800 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-green-700 transition duration-300 ml-5"
+              className="bg-green-800 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-green-700 transition duration-300"
             >
               Logout
             </button>
