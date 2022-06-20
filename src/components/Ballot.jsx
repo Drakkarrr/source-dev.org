@@ -145,8 +145,8 @@ const Ballot = () => {
           text-transparent
           bg-clip-text bg-gradient-to-r
           from-green-400
-          to-green-600
-          w-11/12
+          to-green-600    
+          w-8/12
           mx-auto
         "
       >
