@@ -49,10 +49,10 @@ const Ballot = () => {
       selectedCandidate.candidates.president &&
       selectedCandidate.candidates.vice_president &&
       selectedCandidate.candidates.secretary &&
-      selectedCandidate.candidates.budget_and_finance &&
-      selectedCandidate.candidates.logistics &&
       selectedCandidate.candidates.infomedia &&
+      selectedCandidate.candidates.budget_and_finance &&
       selectedCandidate.candidates.material_preparation_and_services &&
+      selectedCandidate.candidates.logistics &&
       selectedCandidate.candidates.public_relations_and_communications
     ) {
       const userId = await getUserId();
@@ -67,10 +67,10 @@ const Ballot = () => {
         selectedCandidate.candidates.president.full_name,
         selectedCandidate.candidates.vice_president.full_name,
         selectedCandidate.candidates.secretary.full_name,
-        selectedCandidate.candidates.budget_and_finance.full_name,
-        selectedCandidate.candidates.logistics.full_name,
         selectedCandidate.candidates.infomedia.full_name,
+        selectedCandidate.candidates.budget_and_finance.full_name,
         selectedCandidate.candidates.material_preparation_and_services.full_name,
+        selectedCandidate.candidates.logistics.full_name,
         selectedCandidate.candidates.public_relations_and_communications.full_name
       ]
 
