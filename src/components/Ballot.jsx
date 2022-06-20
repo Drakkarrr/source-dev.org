@@ -81,10 +81,10 @@ const Ballot = () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           subject: 'SOURCE ELECTION RECEIPT',
+          from_name: 'LSU Source Election',
+          to: `${user.email} <${user.displayName}>`,
+          cc: 'source@lsu.edu.ph',
           message: message,
-          to: user.email,
-          to_name: user.displayName,
-          from_name: 'LSU Source Election'
         })
       };
 
@@ -164,7 +164,7 @@ const Ballot = () => {
             key={idx}
             title={title}
             className="
-          
+
           rounded-md
       bg-gradient-to-r
       from-green-900
