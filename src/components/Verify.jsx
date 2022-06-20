@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 //!  Firebase
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, db, logout } from '../auth/firebase';
+import { auth, db, logout } from "../auth/firebase";
 import { query, collection, getDocs, where } from "firebase/firestore";
-
 
 const ThankYou = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -25,7 +24,6 @@ const ThankYou = () => {
     }
   };
 
-
   const backToBallot = async () => {
     navigate("/ballot");
   };
@@ -40,8 +38,9 @@ const ThankYou = () => {
     fetchUserName();
   }, [error, loading, navigate, user]);
   return (
-      <div className="mt-10 text-center lg:w-8/12 w-11/12 mx-auto my-30">
-        <div>
+    <div className="flex h-screen">
+      <div className="lg:w-6/12 m-auto text-center lg:border-t-4 lg:border-0 border-4 border-green-900 lg:shadow-lg lg:p-10 py-10 px-2">
+        <div className="">
           <div className="inline-flex mx-auto gap-5">
             <img
               src={require("../assets/lsu-logo.png")}
@@ -64,9 +63,13 @@ const ThankYou = () => {
           </div>
         </div>
 
-        <div className="pt-20 text-sm font-normal h-44 my-auto">
-          For confirmation receipt, please check your LSU email after Logging Out. Thank you, {userName}!
+        <div className="lg:text-sm text-xs lg:text-black text-green-800 my-20 lg:w-10/12 w-11/12 mx-auto text-justify">
+          <div>
+            For confirmation receipt, please check your LSU email after Logging
+            Out. Thank you, {userName}!
+          </div>
         </div>
+
         <div className="lg:flex">
           <div className="w-fit mx-auto">
             <button
@@ -79,12 +82,13 @@ const ThankYou = () => {
               onClick={logout}
               className="bg-green-800 text-white px-4 py-2 rounded-md text-1xl font-medium hover:bg-green-700 transition duration-300 ml-5"
             >
-              Submit and Logout
+              Logout
             </button>
           </div>
         </div>
       </div>
-  )
-}
+    </div>
+  );
+};
 
 export default ThankYou;

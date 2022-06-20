@@ -10,9 +10,9 @@
       },
       {
         "id": 2,
-        "profile": "../images/candidates/andres.jpg",
-        "student_name": "Olario, Andres Edman G.",
-        "course_and_year": "BSIT - 2"
+        "profile": "../images/candidates/ruel.jpg",
+        "student_name": "Buray, Ruel Dean",
+        "course_and_year": "BSCS - 2"
       }
     ]
   },
@@ -129,12 +129,6 @@
       },
       {
         "id": 16,
-        "profile": "../images/candidates/ruel.jpg",
-        "student_name": "Buray, Ruel Dean",
-        "course_and_year": "BSIT-1"
-      },
-      {
-        "id": 17,
         "profile": "../images/candidates/wena.jpg",
         "student_name": "Mabasa, Wena Mae V.",
         "course_and_year": "BSIT-1"
