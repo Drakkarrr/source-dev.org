@@ -139,6 +139,7 @@ const Login = () => {
     "markanthony.bonggol@lsu.edu.ph",
     "michael.canino@lsu.edu.ph",
     "bryan.obagan@lsu.edu.ph",
+    "femarie.corpuz@lsu.edu.ph",
   ];
 
   //!  Adds user token to localStorage upon signin
