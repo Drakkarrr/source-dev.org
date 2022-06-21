@@ -30,7 +30,7 @@ const Ballot = () => {
 
     //!  Toltal candidates counts
     const data1 = helpers.getAllStatistics(list, candidates);
-    // console.log("Candidates total counts", data1);
+    //console.log("Candidates total counts", data1);
   }, []);
 
   //!  Get the voter id

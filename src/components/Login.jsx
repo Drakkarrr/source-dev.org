@@ -73,8 +73,8 @@ const Login = () => {
     "jimwell.wapille@lsu.edu.ph",
     "fortunato.alcuizar@lsu.edu.ph",
     "bansuela.jimholden@lsu.edu.ph",
-    "ricamay.bautista@lsu.edu.ph",
-    "georgerommel.bautistajr@lsu.edu.ph",
+    "rica.bautista@lsu.edu.ph",
+    "george.bautista@lsu.edu.ph",
     "andrealyn.canon@lsu.edu.ph",
     "ma.copat@lsu.edu.ph",
     "joshua.copian@lsu.edu.ph",
@@ -139,6 +139,8 @@ const Login = () => {
     "markanthony.bonggol@lsu.edu.ph",
     "michael.canino@lsu.edu.ph",
     "bryan.obagan@lsu.edu.ph",
+    "neil.laurete@lsu.edu.ph",
+    "rueldean.buray@lsu.edu.ph",
   ];
 
   //!  Adds user token to localStorage upon signin
