@@ -78,7 +78,7 @@ const Ballot = () => {
         selectedCandidate.candidates.public_relations_and_communications.full_name
       ]
 
-      const message = `${messageToMail} the candidates you voted are the following:\nPRESIDENT: ${listVoted[0]},\nVICE PRESIDENT: ${listVoted[1]},\nSECRETARY: ${listVoted[2]},\nINFOMEDIA: ${listVoted[3]},\nBUDGET AND FINANCE: ${listVoted[4]},\nMATERIAL PREPARATION AND SERVICES: ${listVoted[5]},\nLOGISTICS: ${listVoted[6]},\nPUBLIC RELATIONS AND COMMUNICATIONS: ${listVoted[7]}`;
+      const message = `${messageToMail} the candidates you voted are the following:\nPRESIDENT: ${listVoted[0]},\nVICE PRESIDENT: ${listVoted[1]},\nSECRETARY: ${listVoted[2]},\nBUDGET AND FINANCE: ${listVoted[3]},\nLOGISTICS: ${listVoted[4]},\nINFOMEDIA: ${listVoted[5]},\nMATERIAL PREPARATION AND SERVICES: ${listVoted[6]},\nPUBLIC RELATIONS AND COMMUNICATIONS: ${listVoted[7]}`;
       const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
