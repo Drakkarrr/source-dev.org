@@ -20,7 +20,7 @@ const Candidate = ({ data, name, list, onSelectCandidate, ...props }) => {
     >
       <div className="mb-5 mx-auto block w-10/12">
         <div className="flex">
-          <div className=" my-auto lg:mx-5 mx-3">
+          <div className="my-auto lg:mx-5 mx-3">
             <StyledRadioButton className={isChecked} />
           </div>
           <div className="relative">
